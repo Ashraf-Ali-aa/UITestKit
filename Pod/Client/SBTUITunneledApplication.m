@@ -28,7 +28,7 @@
 
 #import "SBTUITunneledApplication.h"
 #import "SBTUITestTunnelClient.h"
-#import "XCTestCase+Swizzles.h"
+#import "Private/XCTestCase+Swizzles.h"
 
 @interface SBTUITunneledApplication () <SBTUITestTunnelClientDelegate>
 @property (nonatomic, strong) SBTUITestTunnelClient *client;
@@ -363,7 +363,7 @@
     return [self.client userInterfaceAnimationSpeed];
 }
 
-#pragma mark - XCUITest extensions
+#pragma mark - XCUITest scroll extensions
 
 - (BOOL)scrollTableViewWithIdentifier:(nonnull NSString *)identifier toRow:(NSInteger)row animated:(BOOL)flag
 {
@@ -380,9 +380,50 @@
     return [self.client scrollScrollViewWithIdentifier:identifier toElementWitIdentifier:targetIdentifier animated:flag];
 }
 
+#pragma mark - XCUITest 3D touch extensions
+
 - (BOOL)forcePressViewWithIdentifier:(NSString *)identifier
 {
     return [self.client forcePressViewWithIdentifier:identifier];
+}
+
+#pragma mark - XCUITest CLLocation extensions
+
+- (BOOL)coreLocationStubEnabled:(BOOL)flag
+{
+    return [self.client coreLocationStubEnabled:flag];
+}
+
+- (BOOL)coreLocationStubAuthorizationStatus:(CLAuthorizationStatus)status
+{
+    return [self.client coreLocationStubAuthorizationStatus:status];
+}
+
+- (BOOL)coreLocationStubLocationServicesEnabled:(BOOL)flag
+{
+    return [self.client coreLocationStubLocationServicesEnabled:flag];
+}
+
+- (BOOL)coreLocationNotifyLocationUpdate:(nonnull NSArray<CLLocation *>*)locations
+{
+    return [self.client coreLocationNotifyLocationUpdate:locations];
+}
+
+- (BOOL)coreLocationNotifyLocationError:(nonnull NSError *)error
+{
+    return [self.client coreLocationNotifyLocationError:error];
+}
+
+#pragma mark - XCUITest UNUserNotificationCenter extensions
+
+- (BOOL)notificationCenterStubEnabled:(BOOL)flag API_AVAILABLE(ios(10.0))
+{
+    return [self.client notificationCenterStubEnabled:flag];
+}
+
+- (BOOL)notificationCenterStubAuthorizationStatus:(UNAuthorizationStatus)status API_AVAILABLE(ios(10.0))
+{
+    return [self.client notificationCenterStubAuthorizationStatus:status];
 }
 
 @end

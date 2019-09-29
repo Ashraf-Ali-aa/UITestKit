@@ -23,21 +23,24 @@
 #if ENABLE_UITUNNEL
 
 #import "SBTUITestTunnelServer.h"
-#import "SBTUITestTunnel.h"
-#import "NSURLRequest+SBTUITestTunnelMatch.h"
-#import "UITextField+DisableAutocomplete.h"
-#import "SBTProxyURLProtocol.h"
-#import "SBTStubResponse.h"
-#import "SBTRewrite.h"
-#import "SBTMonitoredNetworkRequest.h"
-#import "SBTAnyViewControllerPreviewing.h"
-#import "UIViewController+SBTUITestTunnel.h"
-#import <GCDWebServers/GCDWebServer.h>
+#import <UITestKitCommon/SBTUITestTunnel.h>
+#import <UITestKitCommon/NSURLRequest+SBTUITestTunnelMatch.h>
+#import <UITestKitCommon/SBTRewrite.h>
+#import <UITestKitCommon/SBTMonitoredNetworkRequest.h>
+#import <UITestKitCommon/SBTStubResponse.h>
+#import <GCDWebServers/GCDWebServers.h>
 #import <GCDWebServers/GCDWebServerURLEncodedFormRequest.h>
 #import <GCDWebServers/GCDWebServerDataResponse.h>
+#import <CoreLocation/CoreLocation.h>
+#import <UserNotifications/UNUserNotificationCenter.h>
+#import "UITextField+DisableAutocomplete.h"
+#import "SBTProxyURLProtocol.h"
+#import "SBTAnyViewControllerPreviewing.h"
+#import "UIViewController+SBTUITestTunnel.h"
 #import "NSData+SHA1.h"
 #import "UIView+Extensions.h"
-#import <CoreLocation/CoreLocation.h>
+#import "CLLocationManager+Swizzles.h"
+#import "UNUserNotificationCenter+Swizzles.h"
 
 #if !defined(NS_BLOCK_ASSERTIONS)
 
@@ -92,6 +95,11 @@ void repeating_dispatch_after(int64_t delay, dispatch_queue_t queue, BOOL (^bloc
 
 @property (nonatomic, strong) dispatch_semaphore_t launchSemaphore;
 
+@property (nonatomic, strong) NSMapTable<CLLocationManager *, id<CLLocationManagerDelegate>> *coreLocationActiveManagers;
+@property (nonatomic, strong) NSMutableString *coreLocationStubbedAuthorizationStatus;
+@property (nonatomic, strong) NSMutableString *coreLocationStubbedServiceStatus;
+@property (nonatomic, strong) NSMutableString *notificationCenterStubbedAuthorizationStatus;
+
 @end
 
 @implementation SBTUITestTunnelServer
@@ -108,6 +116,9 @@ static NSTimeInterval SBTUITunneledServerDefaultTimeout = 60.0;
         sharedInstance.commandDispatchQueue = dispatch_queue_create("com.sbtuitesttunnel.queue.command", DISPATCH_QUEUE_SERIAL);
         sharedInstance.cruising = YES;
         sharedInstance.launchSemaphore = dispatch_semaphore_create(0);
+        sharedInstance.coreLocationActiveManagers = NSMapTable.weakToStrongObjectsMapTable;
+        sharedInstance.coreLocationStubbedServiceStatus = [NSMutableString string];
+        sharedInstance.notificationCenterStubbedAuthorizationStatus = [NSMutableString string];
 
         [sharedInstance reset];
         [sharedInstance enableUrlProtocolInWkWebview];
@@ -819,7 +830,7 @@ static NSTimeInterval SBTUITunneledServerDefaultTimeout = 60.0;
     return @{ SBTUITunnelResponseResultKey: @"YES" };
 }
 
-#pragma mark - XCUITest extensions
+#pragma mark - XCUITest scroll extensions
 
 - (BOOL)scrollElementWithIdentifier:(NSString *)elementIdentifier elementClass:(Class)elementClass toRow:(NSInteger)elementRow numberOfSections:(NSInteger (^)(UIView *))sectionsDataSource numberOfRows:(NSInteger (^)(UIView *, NSInteger))rowsDataSource scrollDelegate:(void (^)(UIView *, NSIndexPath *))scrollDelegate;
 {
@@ -1092,6 +1103,90 @@ static NSTimeInterval SBTUITunneledServerDefaultTimeout = 60.0;
     NSString *debugInfo = result ? @"" : @"element not found!";
     
     return @{ SBTUITunnelResponseResultKey: result ? @"YES": @"NO", SBTUITunnelResponseDebugKey: debugInfo };
+}
+
+#pragma mark - XCUITest CLLocation extensions
+
+- (NSDictionary *)commandCoreLocationStubbing:(GCDWebServerRequest *)tunnelRequest
+{
+    BOOL stubSystemLocation = [tunnelRequest.parameters[SBTUITunnelObjectValueKey] isEqualToString:@"YES"];
+    if (stubSystemLocation) {
+        [CLLocationManager loadSwizzlesWithInstanceHashTable:self.coreLocationActiveManagers authorizationStatus:self.coreLocationStubbedAuthorizationStatus];
+    } else {
+        [CLLocationManager removeSwizzles];
+    }
+    
+    return @{ SBTUITunnelResponseResultKey: @"YES" };
+}
+
+- (NSDictionary *)commandCoreLocationStubAuthorizationStatus:(GCDWebServerRequest *)tunnelRequest
+{
+    NSString *authorizationStatus = tunnelRequest.parameters[SBTUITunnelObjectValueKey];
+    
+    [self.coreLocationStubbedAuthorizationStatus setString:authorizationStatus];
+    for (CLLocationManager *locationManager in self.coreLocationActiveManagers) {
+        [locationManager.stubbedDelegate locationManager:locationManager didChangeAuthorizationStatus:authorizationStatus.intValue];
+    }
+
+    return @{ SBTUITunnelResponseResultKey: @"YES" };
+}
+
+- (NSDictionary *)commandCoreLocationStubServiceStatus:(GCDWebServerRequest *)tunnelRequest
+{
+    NSString *serviceStatus = tunnelRequest.parameters[SBTUITunnelObjectValueKey];
+    
+    [self.coreLocationStubbedServiceStatus setString:serviceStatus];
+
+    return @{ SBTUITunnelResponseResultKey: @"YES" };
+}
+
+- (NSDictionary *)commandCoreLocationNotifyUpdate:(GCDWebServerRequest *)tunnelRequest
+{
+    NSData *locationsData = [[NSData alloc] initWithBase64EncodedString:tunnelRequest.parameters[SBTUITunnelObjectValueKey] options:0];
+    NSArray<CLLocation *> *locations = [NSKeyedUnarchiver unarchiveObjectWithData:locationsData];
+    
+    for (CLLocationManager *locationManager in self.coreLocationActiveManagers) {
+        [locationManager.stubbedDelegate locationManager:locationManager didUpdateLocations:locations];
+    }
+
+    return @{ SBTUITunnelResponseResultKey: @"YES" };
+}
+
+- (NSDictionary *)commandCoreLocationNotifyFailure:(GCDWebServerRequest *)tunnelRequest
+{
+    NSData *paramData = [[NSData alloc] initWithBase64EncodedString:tunnelRequest.parameters[SBTUITunnelObjectValueKey] options:0];
+    NSError *error = [NSKeyedUnarchiver unarchiveObjectWithData:paramData];
+    
+    for (CLLocationManager *locationManager in self.coreLocationActiveManagers) {
+        [locationManager.stubbedDelegate locationManager:locationManager didFailWithError:error];
+    }
+
+    return @{ SBTUITunnelResponseResultKey: @"YES" };
+}
+
+#pragma mark - XCUITest UNUserNotificationCenter extensions
+
+- (NSDictionary *)commandNotificationCenterStubbing:(GCDWebServerRequest *)tunnelRequest
+{
+    if (@available(iOS 10.0, *)) {
+        BOOL stubNotificationCenter = [tunnelRequest.parameters[SBTUITunnelObjectValueKey] isEqualToString:@"YES"];
+        if (stubNotificationCenter) {
+            [UNUserNotificationCenter loadSwizzlesWithAuthorizationStatus:self.notificationCenterStubbedAuthorizationStatus];
+        } else {
+            [UNUserNotificationCenter removeSwizzles];
+        }
+    }
+    
+    return @{ SBTUITunnelResponseResultKey: @"YES" };
+}
+
+- (NSDictionary *)commandNotificationCenterStubAuthorizationStatus:(GCDWebServerRequest *)tunnelRequest
+{
+    NSString *authorizationStatus = tunnelRequest.parameters[SBTUITunnelObjectValueKey];
+    
+    [self.notificationCenterStubbedAuthorizationStatus setString:authorizationStatus];
+
+    return @{ SBTUITunnelResponseResultKey: @"YES" };
 }
 
 #pragma mark - Custom Commands

@@ -6,7 +6,8 @@
 //  Copyright © 2018 Tomas Camin. All rights reserved.
 //
 
-import SBTUITestTunnel
+import UITestKitClient
+import UITestKitServer
 import Foundation
 import XCTest
 

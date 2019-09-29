@@ -1,4 +1,4 @@
-//// XCTestCase+AppExtension.m
+// UITextField+DisableAutocomplete.m
 //
 // Copyright (C) 2016 Subito.it S.r.l (www.subito.it)
 //
@@ -15,37 +15,29 @@
 // limitations under the License.
 
 #if DEBUG
-    #ifndef ENABLE_UITUNNEL
+    #ifndef ENABLE_UITUNNEL 
         #define ENABLE_UITUNNEL 1
-    #endif
-
-    #ifndef ENABLE_UITUNNEL_SWIZZLING
-        #define ENABLE_UITUNNEL_SWIZZLING 1
     #endif
 #endif
 
-#if ENABLE_UITUNNEL && ENABLE_UITUNNEL_SWIZZLING
+#if ENABLE_UITUNNEL
 
-#import "XCTestCase+Swizzles.h"
-#import "SBTSwizzleHelpers.h"
-#import "XCTestCase+AppExtension.h"
-#import "SBTUITunneledApplication.h"
+#import "UITextField+DisableAutocomplete.h"
+#import <UITestKitCommon/SBTSwizzleHelpers.h>
 
-@implementation XCTestCase (Swizzles)
+@implementation UITextField (DisableAutocomplete)
 
-- (void)swz_tearDown
-{
-    [self.app terminate];
-    
-    [self swz_tearDown];
-}
-
-+ (void)loadSwizzles
++ (void)disableAutocompleteOnce
 {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        SBTTestTunnelInstanceSwizzle(self.class, @selector(tearDown), @selector(swz_tearDown));
+        SBTTestTunnelInstanceSwizzle(self, @selector(autocorrectionType), @selector(swz_autocorrectionType));
     });
+}
+
+- (UITextAutocorrectionType)swz_autocorrectionType
+{
+    return UITextAutocorrectionTypeNo;
 }
 
 @end

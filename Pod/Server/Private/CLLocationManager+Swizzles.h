@@ -1,6 +1,6 @@
-//  UIViewController+SBTUITestTunnel.h
+// CLLocationManager+Swizzles.h
 //
-// Copyright (C) 2016 Subito.it S.r.l (www.subito.it)
+// Copyright (C) 2018 Subito.it S.r.l (www.subito.it)
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -18,17 +18,23 @@
     #ifndef ENABLE_UITUNNEL
         #define ENABLE_UITUNNEL 1
     #endif
+
+    #ifndef ENABLE_UITUNNEL_SWIZZLING
+        #define ENABLE_UITUNNEL_SWIZZLING 1
+    #endif
 #endif
 
-#if ENABLE_UITUNNEL
+#if ENABLE_UITUNNEL && ENABLE_UITUNNEL_SWIZZLING
 
-#import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
+#import <CoreLocation/CLLocationManager.h>
 
-@interface UIViewController (SBTUITestTunnel)
+@interface CLLocationManager (Swizzles)
 
-+ (nullable UIView *)previewingRegisteredViewForView:(nonnull UIView *)view;
-+ (nullable id<UIViewControllerPreviewingDelegate>)previewingDelegateForRegisteredView:(nonnull UIView *)view;
++ (void)loadSwizzlesWithInstanceHashTable:(NSMapTable<CLLocationManager *, id<CLLocationManagerDelegate>>*)hashTable
+                      authorizationStatus:(NSString *)autorizationStatus;
++ (void)removeSwizzles;
+
+- (id<CLLocationManagerDelegate>)stubbedDelegate;
 
 @end
 

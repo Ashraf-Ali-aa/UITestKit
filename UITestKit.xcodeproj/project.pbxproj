@@ -7,126 +7,136 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C30D568023438C8A0096B006 /* UIViewController+SBTUITestTunnel.h in Headers */ = {isa = PBXBuildFile; fileRef = C30D566923438C890096B006 /* UIViewController+SBTUITestTunnel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C30D568123438C8A0096B006 /* SBTUITestTunnelServer.h in Headers */ = {isa = PBXBuildFile; fileRef = C30D566A23438C890096B006 /* SBTUITestTunnelServer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C30D568223438C8A0096B006 /* UIViewController+SBTUITestTunnel.m in Sources */ = {isa = PBXBuildFile; fileRef = C30D566B23438C890096B006 /* UIViewController+SBTUITestTunnel.m */; };
+		C30D568323438C8A0096B006 /* SBTUITestTunnelServer.m in Sources */ = {isa = PBXBuildFile; fileRef = C30D566C23438C890096B006 /* SBTUITestTunnelServer.m */; };
+		C30D568423438C8A0096B006 /* NSURLSession+HTTPBodyFix.h in Headers */ = {isa = PBXBuildFile; fileRef = C30D566E23438C8A0096B006 /* NSURLSession+HTTPBodyFix.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		C30D568523438C8A0096B006 /* SBTProxyURLProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = C30D566F23438C8A0096B006 /* SBTProxyURLProtocol.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		C30D568623438C8A0096B006 /* UIView+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C30D567023438C8A0096B006 /* UIView+Extensions.m */; };
+		C30D568723438C8A0096B006 /* CLLocationManager+Swizzles.m in Sources */ = {isa = PBXBuildFile; fileRef = C30D567123438C8A0096B006 /* CLLocationManager+Swizzles.m */; };
+		C30D568823438C8A0096B006 /* UITextField+DisableAutocomplete.m in Sources */ = {isa = PBXBuildFile; fileRef = C30D567223438C8A0096B006 /* UITextField+DisableAutocomplete.m */; };
+		C30D568923438C8A0096B006 /* NSURLSessionConfiguration+SBTUITestTunnel.h in Headers */ = {isa = PBXBuildFile; fileRef = C30D567323438C8A0096B006 /* NSURLSessionConfiguration+SBTUITestTunnel.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		C30D568A23438C8A0096B006 /* NSData+SHA1.m in Sources */ = {isa = PBXBuildFile; fileRef = C30D567423438C8A0096B006 /* NSData+SHA1.m */; };
+		C30D568B23438C8A0096B006 /* UNUserNotificationCenter+Swizzles.m in Sources */ = {isa = PBXBuildFile; fileRef = C30D567523438C8A0096B006 /* UNUserNotificationCenter+Swizzles.m */; };
+		C30D568C23438C8A0096B006 /* SBTProxyURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = C30D567623438C8A0096B006 /* SBTProxyURLProtocol.m */; };
+		C30D568D23438C8A0096B006 /* NSURLSession+HTTPBodyFix.m in Sources */ = {isa = PBXBuildFile; fileRef = C30D567723438C8A0096B006 /* NSURLSession+HTTPBodyFix.m */; };
+		C30D568E23438C8A0096B006 /* CLLocationManager+Swizzles.h in Headers */ = {isa = PBXBuildFile; fileRef = C30D567823438C8A0096B006 /* CLLocationManager+Swizzles.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		C30D568F23438C8A0096B006 /* UIView+Extensions.h in Headers */ = {isa = PBXBuildFile; fileRef = C30D567923438C8A0096B006 /* UIView+Extensions.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		C30D569023438C8A0096B006 /* UITextField+DisableAutocomplete.h in Headers */ = {isa = PBXBuildFile; fileRef = C30D567A23438C8A0096B006 /* UITextField+DisableAutocomplete.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		C30D569123438C8A0096B006 /* UNUserNotificationCenter+Swizzles.h in Headers */ = {isa = PBXBuildFile; fileRef = C30D567B23438C8A0096B006 /* UNUserNotificationCenter+Swizzles.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		C30D569223438C8A0096B006 /* NSData+SHA1.h in Headers */ = {isa = PBXBuildFile; fileRef = C30D567C23438C8A0096B006 /* NSData+SHA1.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		C30D569323438C8A0096B006 /* NSURLSessionConfiguration+SBTUITestTunnel.m in Sources */ = {isa = PBXBuildFile; fileRef = C30D567D23438C8A0096B006 /* NSURLSessionConfiguration+SBTUITestTunnel.m */; };
+		C30D569423438C8A0096B006 /* SBTAnyViewControllerPreviewing.h in Headers */ = {isa = PBXBuildFile; fileRef = C30D567E23438C8A0096B006 /* SBTAnyViewControllerPreviewing.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C30D569523438C8A0096B006 /* SBTAnyViewControllerPreviewing.m in Sources */ = {isa = PBXBuildFile; fileRef = C30D567F23438C8A0096B006 /* SBTAnyViewControllerPreviewing.m */; };
+		C30D56AA23438CB30096B006 /* SBTUITestTunnel.h in Headers */ = {isa = PBXBuildFile; fileRef = C30D569623438CB20096B006 /* SBTUITestTunnel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C30D56AB23438CB30096B006 /* SBTRequestMatch.m in Sources */ = {isa = PBXBuildFile; fileRef = C30D569723438CB20096B006 /* SBTRequestMatch.m */; };
+		C30D56AC23438CB30096B006 /* SBTRewrite.m in Sources */ = {isa = PBXBuildFile; fileRef = C30D569823438CB20096B006 /* SBTRewrite.m */; };
+		C30D56AD23438CB30096B006 /* SBTMonitoredNetworkRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C30D569923438CB20096B006 /* SBTMonitoredNetworkRequest.m */; };
+		C30D56AE23438CB30096B006 /* NSURLRequest+SBTUITestTunnelMatch.h in Headers */ = {isa = PBXBuildFile; fileRef = C30D569A23438CB20096B006 /* NSURLRequest+SBTUITestTunnelMatch.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C30D56AF23438CB30096B006 /* NSURLRequest+SBTUITestTunnelMatch.m in Sources */ = {isa = PBXBuildFile; fileRef = C30D569B23438CB20096B006 /* NSURLRequest+SBTUITestTunnelMatch.m */; };
+		C30D56B023438CB30096B006 /* SBTStubResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = C30D569C23438CB20096B006 /* SBTStubResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C30D56B123438CB30096B006 /* NSData+gzip.h in Headers */ = {isa = PBXBuildFile; fileRef = C30D569E23438CB30096B006 /* NSData+gzip.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		C30D56B223438CB30096B006 /* NSURLRequest+HTTPBodyFix.h in Headers */ = {isa = PBXBuildFile; fileRef = C30D569F23438CB30096B006 /* NSURLRequest+HTTPBodyFix.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		C30D56B323438CB30096B006 /* NSString+SwiftDemangle.m in Sources */ = {isa = PBXBuildFile; fileRef = C30D56A023438CB30096B006 /* NSString+SwiftDemangle.m */; };
+		C30D56B423438CB30096B006 /* NSURLRequest+HTTPBodyFix.m in Sources */ = {isa = PBXBuildFile; fileRef = C30D56A123438CB30096B006 /* NSURLRequest+HTTPBodyFix.m */; };
+		C30D56B523438CB30096B006 /* NSData+gzip.m in Sources */ = {isa = PBXBuildFile; fileRef = C30D56A223438CB30096B006 /* NSData+gzip.m */; };
+		C30D56B623438CB30096B006 /* NSString+SwiftDemangle.h in Headers */ = {isa = PBXBuildFile; fileRef = C30D56A323438CB30096B006 /* NSString+SwiftDemangle.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		C30D56B723438CB30096B006 /* SBTMonitoredNetworkRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = C30D56A423438CB30096B006 /* SBTMonitoredNetworkRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C30D56B823438CB30096B006 /* SBTSwizzleHelpers.h in Headers */ = {isa = PBXBuildFile; fileRef = C30D56A523438CB30096B006 /* SBTSwizzleHelpers.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C30D56B923438CB30096B006 /* SBTUITestTunnel.m in Sources */ = {isa = PBXBuildFile; fileRef = C30D56A623438CB30096B006 /* SBTUITestTunnel.m */; };
+		C30D56BA23438CB30096B006 /* SBTRequestMatch.h in Headers */ = {isa = PBXBuildFile; fileRef = C30D56A723438CB30096B006 /* SBTRequestMatch.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C30D56BB23438CB30096B006 /* SBTStubResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = C30D56A823438CB30096B006 /* SBTStubResponse.m */; };
+		C30D56BC23438CB30096B006 /* SBTRewrite.h in Headers */ = {isa = PBXBuildFile; fileRef = C30D56A923438CB30096B006 /* SBTRewrite.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C30D56C723438CF60096B006 /* SBTUITunneledApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = C30D56BD23438CF60096B006 /* SBTUITunneledApplication.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C30D56C823438CF60096B006 /* XCTestCase+AppExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = C30D56BE23438CF60096B006 /* XCTestCase+AppExtension.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C30D56C923438CF60096B006 /* XCTestCase+Swizzles.h in Headers */ = {isa = PBXBuildFile; fileRef = C30D56C023438CF60096B006 /* XCTestCase+Swizzles.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		C30D56CA23438CF60096B006 /* XCTestCase+Swizzles.m in Sources */ = {isa = PBXBuildFile; fileRef = C30D56C123438CF60096B006 /* XCTestCase+Swizzles.m */; };
+		C30D56CB23438CF60096B006 /* SBTUITestTunnelClient.m in Sources */ = {isa = PBXBuildFile; fileRef = C30D56C223438CF60096B006 /* SBTUITestTunnelClient.m */; };
+		C30D56CC23438CF60096B006 /* SBTUITestTunnelClient.h in Headers */ = {isa = PBXBuildFile; fileRef = C30D56C323438CF60096B006 /* SBTUITestTunnelClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C30D56CD23438CF60096B006 /* SBTUITestTunnelClientProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = C30D56C423438CF60096B006 /* SBTUITestTunnelClientProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C30D56CE23438CF60096B006 /* XCTestCase+AppExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C30D56C523438CF60096B006 /* XCTestCase+AppExtension.m */; };
+		C30D56CF23438CF60096B006 /* SBTUITunneledApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = C30D56C623438CF60096B006 /* SBTUITunneledApplication.m */; };
+		C30D56D0234393150096B006 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE074EA4231D641F00A50F4E /* Foundation.framework */; };
+		C30D56D12343932D0096B006 /* UITestKitServer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE047570231E70D600108221 /* UITestKitServer.framework */; };
+		C30D56D22343935C0096B006 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE074EA4231D641F00A50F4E /* Foundation.framework */; };
+		C3C4895C23424DF500F288C7 /* UITestKitCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = C3C4894E23424DF500F288C7 /* UITestKitCommon.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C3C4897623424EAA00F288C7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE074EA4231D641F00A50F4E /* Foundation.framework */; };
+		C3C4897723433D7A00F288C7 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE074E70231D57CE00A50F4E /* XCTest.framework */; };
+		C3C489C22343544500F288C7 /* UITestKitCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3C4894C23424DF500F288C7 /* UITestKitCommon.framework */; };
+		C3C489C32343544C00F288C7 /* UITestKitCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3C4894C23424DF500F288C7 /* UITestKitCommon.framework */; };
 		CE047574231E70D600108221 /* UITestKitServer.h in Headers */ = {isa = PBXBuildFile; fileRef = CE047572231E70D600108221 /* UITestKitServer.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CE047578231E70F200108221 /* NSURLSession+HTTPBodyFix.h in Headers */ = {isa = PBXBuildFile; fileRef = CE074E4B231D578A00A50F4E /* NSURLSession+HTTPBodyFix.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CE047579231E70F200108221 /* SBTProxyURLProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = CE074E4C231D578A00A50F4E /* SBTProxyURLProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CE04757A231E70F200108221 /* UIView+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = CE074E4D231D578A00A50F4E /* UIView+Extensions.m */; };
-		CE04757B231E70F200108221 /* UIViewController+SBTUITestTunnel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE074E4E231D578A00A50F4E /* UIViewController+SBTUITestTunnel.m */; };
-		CE04757C231E70F200108221 /* UITextField+DisableAutocomplete.m in Sources */ = {isa = PBXBuildFile; fileRef = CE074E4F231D578A00A50F4E /* UITextField+DisableAutocomplete.m */; };
-		CE04757D231E70F200108221 /* NSURLSessionConfiguration+SBTUITestTunnel.h in Headers */ = {isa = PBXBuildFile; fileRef = CE074E50231D578A00A50F4E /* NSURLSessionConfiguration+SBTUITestTunnel.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CE04757E231E70F200108221 /* SBTUITestTunnelServer.h in Headers */ = {isa = PBXBuildFile; fileRef = CE074E51231D578A00A50F4E /* SBTUITestTunnelServer.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CE04757F231E70F200108221 /* SBTAnyViewControllerPreviewing.h in Headers */ = {isa = PBXBuildFile; fileRef = CE074E52231D578A00A50F4E /* SBTAnyViewControllerPreviewing.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CE047580231E70F200108221 /* NSData+SHA1.m in Sources */ = {isa = PBXBuildFile; fileRef = CE074E53231D578A00A50F4E /* NSData+SHA1.m */; };
-		CE047581231E70F200108221 /* SBTProxyURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = CE074E54231D578A00A50F4E /* SBTProxyURLProtocol.m */; };
-		CE047582231E70F200108221 /* NSURLSession+HTTPBodyFix.m in Sources */ = {isa = PBXBuildFile; fileRef = CE074E55231D578A00A50F4E /* NSURLSession+HTTPBodyFix.m */; };
-		CE047583231E70F200108221 /* UIView+Extensions.h in Headers */ = {isa = PBXBuildFile; fileRef = CE074E56231D578A00A50F4E /* UIView+Extensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CE047584231E70F200108221 /* UITextField+DisableAutocomplete.h in Headers */ = {isa = PBXBuildFile; fileRef = CE074E57231D578A00A50F4E /* UITextField+DisableAutocomplete.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CE047585231E70F200108221 /* UIViewController+SBTUITestTunnel.h in Headers */ = {isa = PBXBuildFile; fileRef = CE074E58231D578A00A50F4E /* UIViewController+SBTUITestTunnel.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CE047586231E70F200108221 /* NSData+SHA1.h in Headers */ = {isa = PBXBuildFile; fileRef = CE074E59231D578A00A50F4E /* NSData+SHA1.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CE047587231E70F200108221 /* SBTAnyViewControllerPreviewing.m in Sources */ = {isa = PBXBuildFile; fileRef = CE074E5A231D578A00A50F4E /* SBTAnyViewControllerPreviewing.m */; };
-		CE047588231E70F200108221 /* SBTUITestTunnelServer.m in Sources */ = {isa = PBXBuildFile; fileRef = CE074E5B231D578A00A50F4E /* SBTUITestTunnelServer.m */; };
-		CE047589231E70F200108221 /* NSURLSessionConfiguration+SBTUITestTunnel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE074E5C231D578A00A50F4E /* NSURLSessionConfiguration+SBTUITestTunnel.m */; };
-		CE04758A231E70FA00108221 /* NSData+gzip.h in Headers */ = {isa = PBXBuildFile; fileRef = CE074E24231D578400A50F4E /* NSData+gzip.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CE04758B231E70FA00108221 /* SBTSwizzleHelpers.h in Headers */ = {isa = PBXBuildFile; fileRef = CE074E25231D578400A50F4E /* SBTSwizzleHelpers.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CE04758C231E70FA00108221 /* NSURLRequest+HTTPBodyFix.h in Headers */ = {isa = PBXBuildFile; fileRef = CE074E26231D578400A50F4E /* NSURLRequest+HTTPBodyFix.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CE04758D231E70FA00108221 /* SBTUITestTunnel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE074E27231D578400A50F4E /* SBTUITestTunnel.m */; };
-		CE04758E231E70FA00108221 /* SBTMonitoredNetworkRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = CE074E28231D578400A50F4E /* SBTMonitoredNetworkRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CE04758F231E70FA00108221 /* SBTRequestMatch.m in Sources */ = {isa = PBXBuildFile; fileRef = CE074E29231D578400A50F4E /* SBTRequestMatch.m */; };
-		CE047590231E70FA00108221 /* SBTRewrite.m in Sources */ = {isa = PBXBuildFile; fileRef = CE074E2A231D578400A50F4E /* SBTRewrite.m */; };
-		CE047591231E70FA00108221 /* NSURLRequest+SBTUITestTunnelMatch.m in Sources */ = {isa = PBXBuildFile; fileRef = CE074E2B231D578400A50F4E /* NSURLRequest+SBTUITestTunnelMatch.m */; };
-		CE047592231E70FA00108221 /* SBTStubResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = CE074E2C231D578400A50F4E /* SBTStubResponse.m */; };
-		CE047593231E70FA00108221 /* NSString+SwiftDemangle.m in Sources */ = {isa = PBXBuildFile; fileRef = CE074E2D231D578400A50F4E /* NSString+SwiftDemangle.m */; };
-		CE047594231E70FA00108221 /* SBTMonitoredNetworkRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = CE074E2E231D578400A50F4E /* SBTMonitoredNetworkRequest.m */; };
-		CE047595231E70FA00108221 /* SBTUITestTunnel.h in Headers */ = {isa = PBXBuildFile; fileRef = CE074E2F231D578400A50F4E /* SBTUITestTunnel.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CE047596231E70FA00108221 /* NSURLRequest+HTTPBodyFix.m in Sources */ = {isa = PBXBuildFile; fileRef = CE074E30231D578400A50F4E /* NSURLRequest+HTTPBodyFix.m */; };
-		CE047597231E70FA00108221 /* NSData+gzip.m in Sources */ = {isa = PBXBuildFile; fileRef = CE074E31231D578400A50F4E /* NSData+gzip.m */; };
-		CE047598231E70FA00108221 /* SBTStubResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = CE074E32231D578400A50F4E /* SBTStubResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CE047599231E70FA00108221 /* NSURLRequest+SBTUITestTunnelMatch.h in Headers */ = {isa = PBXBuildFile; fileRef = CE074E33231D578400A50F4E /* NSURLRequest+SBTUITestTunnelMatch.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CE04759A231E70FA00108221 /* SBTRewrite.h in Headers */ = {isa = PBXBuildFile; fileRef = CE074E34231D578400A50F4E /* SBTRewrite.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CE04759B231E70FA00108221 /* SBTRequestMatch.h in Headers */ = {isa = PBXBuildFile; fileRef = CE074E35231D578400A50F4E /* SBTRequestMatch.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CE04759C231E70FA00108221 /* NSString+SwiftDemangle.h in Headers */ = {isa = PBXBuildFile; fileRef = CE074E36231D578400A50F4E /* NSString+SwiftDemangle.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CE04759D231E713700108221 /* GCDWebServers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE074ECD231D68C300A50F4E /* GCDWebServers.framework */; };
 		CE074ED8231D698200A50F4E /* UITestKitClient.h in Headers */ = {isa = PBXBuildFile; fileRef = CE074ED6231D698200A50F4E /* UITestKitClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CE074EDC231D699A00A50F4E /* SBTUITestTunnelClient.m in Sources */ = {isa = PBXBuildFile; fileRef = CE074E11231D577A00A50F4E /* SBTUITestTunnelClient.m */; };
-		CE074EDD231D699A00A50F4E /* SBTUITunneledApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = CE074E12231D577A00A50F4E /* SBTUITunneledApplication.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CE074EDE231D699A00A50F4E /* XCTestCase+AppExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = CE074E13231D577A00A50F4E /* XCTestCase+AppExtension.m */; };
-		CE074EDF231D699A00A50F4E /* XCTestCase+Swizzles.h in Headers */ = {isa = PBXBuildFile; fileRef = CE074E14231D577A00A50F4E /* XCTestCase+Swizzles.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CE074EE0231D699A00A50F4E /* SBTUITestTunnelClientProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = CE074E15231D577A00A50F4E /* SBTUITestTunnelClientProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CE074EE1231D699A00A50F4E /* SBTUITunneledApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = CE074E16231D577A00A50F4E /* SBTUITunneledApplication.m */; };
-		CE074EE2231D699A00A50F4E /* SBTUITestTunnelClient.h in Headers */ = {isa = PBXBuildFile; fileRef = CE074E17231D577A00A50F4E /* SBTUITestTunnelClient.h */; };
-		CE074EE3231D699A00A50F4E /* XCTestCase+Swizzles.m in Sources */ = {isa = PBXBuildFile; fileRef = CE074E18231D577A00A50F4E /* XCTestCase+Swizzles.m */; };
-		CE074EE4231D699A00A50F4E /* XCTestCase+AppExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = CE074E19231D577A00A50F4E /* XCTestCase+AppExtension.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CE074EE5231D69A000A50F4E /* NSData+gzip.h in Headers */ = {isa = PBXBuildFile; fileRef = CE074E24231D578400A50F4E /* NSData+gzip.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CE074EE6231D69A000A50F4E /* SBTSwizzleHelpers.h in Headers */ = {isa = PBXBuildFile; fileRef = CE074E25231D578400A50F4E /* SBTSwizzleHelpers.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CE074EE7231D69A000A50F4E /* NSURLRequest+HTTPBodyFix.h in Headers */ = {isa = PBXBuildFile; fileRef = CE074E26231D578400A50F4E /* NSURLRequest+HTTPBodyFix.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CE074EE8231D69A000A50F4E /* SBTUITestTunnel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE074E27231D578400A50F4E /* SBTUITestTunnel.m */; };
-		CE074EE9231D69A000A50F4E /* SBTMonitoredNetworkRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = CE074E28231D578400A50F4E /* SBTMonitoredNetworkRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CE074EEA231D69A000A50F4E /* SBTRequestMatch.m in Sources */ = {isa = PBXBuildFile; fileRef = CE074E29231D578400A50F4E /* SBTRequestMatch.m */; };
-		CE074EEB231D69A000A50F4E /* SBTRewrite.m in Sources */ = {isa = PBXBuildFile; fileRef = CE074E2A231D578400A50F4E /* SBTRewrite.m */; };
-		CE074EEC231D69A000A50F4E /* NSURLRequest+SBTUITestTunnelMatch.m in Sources */ = {isa = PBXBuildFile; fileRef = CE074E2B231D578400A50F4E /* NSURLRequest+SBTUITestTunnelMatch.m */; };
-		CE074EED231D69A000A50F4E /* SBTStubResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = CE074E2C231D578400A50F4E /* SBTStubResponse.m */; };
-		CE074EEE231D69A000A50F4E /* NSString+SwiftDemangle.m in Sources */ = {isa = PBXBuildFile; fileRef = CE074E2D231D578400A50F4E /* NSString+SwiftDemangle.m */; };
-		CE074EEF231D69A000A50F4E /* SBTMonitoredNetworkRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = CE074E2E231D578400A50F4E /* SBTMonitoredNetworkRequest.m */; };
-		CE074EF0231D69A000A50F4E /* SBTUITestTunnel.h in Headers */ = {isa = PBXBuildFile; fileRef = CE074E2F231D578400A50F4E /* SBTUITestTunnel.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CE074EF1231D69A000A50F4E /* NSURLRequest+HTTPBodyFix.m in Sources */ = {isa = PBXBuildFile; fileRef = CE074E30231D578400A50F4E /* NSURLRequest+HTTPBodyFix.m */; };
-		CE074EF2231D69A000A50F4E /* NSData+gzip.m in Sources */ = {isa = PBXBuildFile; fileRef = CE074E31231D578400A50F4E /* NSData+gzip.m */; };
-		CE074EF3231D69A000A50F4E /* SBTStubResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = CE074E32231D578400A50F4E /* SBTStubResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CE074EF4231D69A000A50F4E /* NSURLRequest+SBTUITestTunnelMatch.h in Headers */ = {isa = PBXBuildFile; fileRef = CE074E33231D578400A50F4E /* NSURLRequest+SBTUITestTunnelMatch.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CE074EF5231D69A000A50F4E /* SBTRewrite.h in Headers */ = {isa = PBXBuildFile; fileRef = CE074E34231D578400A50F4E /* SBTRewrite.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CE074EF6231D69A000A50F4E /* SBTRequestMatch.h in Headers */ = {isa = PBXBuildFile; fileRef = CE074E35231D578400A50F4E /* SBTRequestMatch.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CE074EF7231D69A000A50F4E /* NSString+SwiftDemangle.h in Headers */ = {isa = PBXBuildFile; fileRef = CE074E36231D578400A50F4E /* NSString+SwiftDemangle.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		C3C489ED2343565B00F288C7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE074DFC231D569300A50F4E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C3C4894B23424DF500F288C7;
+			remoteInfo = UITestKitCommon;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		C30D566923438C890096B006 /* UIViewController+SBTUITestTunnel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+SBTUITestTunnel.h"; sourceTree = "<group>"; };
+		C30D566A23438C890096B006 /* SBTUITestTunnelServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBTUITestTunnelServer.h; sourceTree = "<group>"; };
+		C30D566B23438C890096B006 /* UIViewController+SBTUITestTunnel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+SBTUITestTunnel.m"; sourceTree = "<group>"; };
+		C30D566C23438C890096B006 /* SBTUITestTunnelServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBTUITestTunnelServer.m; sourceTree = "<group>"; };
+		C30D566E23438C8A0096B006 /* NSURLSession+HTTPBodyFix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLSession+HTTPBodyFix.h"; sourceTree = "<group>"; };
+		C30D566F23438C8A0096B006 /* SBTProxyURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBTProxyURLProtocol.h; sourceTree = "<group>"; };
+		C30D567023438C8A0096B006 /* UIView+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extensions.m"; sourceTree = "<group>"; };
+		C30D567123438C8A0096B006 /* CLLocationManager+Swizzles.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CLLocationManager+Swizzles.m"; sourceTree = "<group>"; };
+		C30D567223438C8A0096B006 /* UITextField+DisableAutocomplete.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+DisableAutocomplete.m"; sourceTree = "<group>"; };
+		C30D567323438C8A0096B006 /* NSURLSessionConfiguration+SBTUITestTunnel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLSessionConfiguration+SBTUITestTunnel.h"; sourceTree = "<group>"; };
+		C30D567423438C8A0096B006 /* NSData+SHA1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+SHA1.m"; sourceTree = "<group>"; };
+		C30D567523438C8A0096B006 /* UNUserNotificationCenter+Swizzles.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UNUserNotificationCenter+Swizzles.m"; sourceTree = "<group>"; };
+		C30D567623438C8A0096B006 /* SBTProxyURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBTProxyURLProtocol.m; sourceTree = "<group>"; };
+		C30D567723438C8A0096B006 /* NSURLSession+HTTPBodyFix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLSession+HTTPBodyFix.m"; sourceTree = "<group>"; };
+		C30D567823438C8A0096B006 /* CLLocationManager+Swizzles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CLLocationManager+Swizzles.h"; sourceTree = "<group>"; };
+		C30D567923438C8A0096B006 /* UIView+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extensions.h"; sourceTree = "<group>"; };
+		C30D567A23438C8A0096B006 /* UITextField+DisableAutocomplete.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+DisableAutocomplete.h"; sourceTree = "<group>"; };
+		C30D567B23438C8A0096B006 /* UNUserNotificationCenter+Swizzles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UNUserNotificationCenter+Swizzles.h"; sourceTree = "<group>"; };
+		C30D567C23438C8A0096B006 /* NSData+SHA1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+SHA1.h"; sourceTree = "<group>"; };
+		C30D567D23438C8A0096B006 /* NSURLSessionConfiguration+SBTUITestTunnel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLSessionConfiguration+SBTUITestTunnel.m"; sourceTree = "<group>"; };
+		C30D567E23438C8A0096B006 /* SBTAnyViewControllerPreviewing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBTAnyViewControllerPreviewing.h; sourceTree = "<group>"; };
+		C30D567F23438C8A0096B006 /* SBTAnyViewControllerPreviewing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBTAnyViewControllerPreviewing.m; sourceTree = "<group>"; };
+		C30D569623438CB20096B006 /* SBTUITestTunnel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBTUITestTunnel.h; sourceTree = "<group>"; };
+		C30D569723438CB20096B006 /* SBTRequestMatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBTRequestMatch.m; sourceTree = "<group>"; };
+		C30D569823438CB20096B006 /* SBTRewrite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBTRewrite.m; sourceTree = "<group>"; };
+		C30D569923438CB20096B006 /* SBTMonitoredNetworkRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBTMonitoredNetworkRequest.m; sourceTree = "<group>"; };
+		C30D569A23438CB20096B006 /* NSURLRequest+SBTUITestTunnelMatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLRequest+SBTUITestTunnelMatch.h"; sourceTree = "<group>"; };
+		C30D569B23438CB20096B006 /* NSURLRequest+SBTUITestTunnelMatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLRequest+SBTUITestTunnelMatch.m"; sourceTree = "<group>"; };
+		C30D569C23438CB20096B006 /* SBTStubResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBTStubResponse.h; sourceTree = "<group>"; };
+		C30D569E23438CB30096B006 /* NSData+gzip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+gzip.h"; sourceTree = "<group>"; };
+		C30D569F23438CB30096B006 /* NSURLRequest+HTTPBodyFix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLRequest+HTTPBodyFix.h"; sourceTree = "<group>"; };
+		C30D56A023438CB30096B006 /* NSString+SwiftDemangle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SwiftDemangle.m"; sourceTree = "<group>"; };
+		C30D56A123438CB30096B006 /* NSURLRequest+HTTPBodyFix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLRequest+HTTPBodyFix.m"; sourceTree = "<group>"; };
+		C30D56A223438CB30096B006 /* NSData+gzip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+gzip.m"; sourceTree = "<group>"; };
+		C30D56A323438CB30096B006 /* NSString+SwiftDemangle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SwiftDemangle.h"; sourceTree = "<group>"; };
+		C30D56A423438CB30096B006 /* SBTMonitoredNetworkRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBTMonitoredNetworkRequest.h; sourceTree = "<group>"; };
+		C30D56A523438CB30096B006 /* SBTSwizzleHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBTSwizzleHelpers.h; sourceTree = "<group>"; };
+		C30D56A623438CB30096B006 /* SBTUITestTunnel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBTUITestTunnel.m; sourceTree = "<group>"; };
+		C30D56A723438CB30096B006 /* SBTRequestMatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBTRequestMatch.h; sourceTree = "<group>"; };
+		C30D56A823438CB30096B006 /* SBTStubResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBTStubResponse.m; sourceTree = "<group>"; };
+		C30D56A923438CB30096B006 /* SBTRewrite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBTRewrite.h; sourceTree = "<group>"; };
+		C30D56BD23438CF60096B006 /* SBTUITunneledApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBTUITunneledApplication.h; sourceTree = "<group>"; };
+		C30D56BE23438CF60096B006 /* XCTestCase+AppExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "XCTestCase+AppExtension.h"; sourceTree = "<group>"; };
+		C30D56C023438CF60096B006 /* XCTestCase+Swizzles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "XCTestCase+Swizzles.h"; sourceTree = "<group>"; };
+		C30D56C123438CF60096B006 /* XCTestCase+Swizzles.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XCTestCase+Swizzles.m"; sourceTree = "<group>"; };
+		C30D56C223438CF60096B006 /* SBTUITestTunnelClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBTUITestTunnelClient.m; sourceTree = "<group>"; };
+		C30D56C323438CF60096B006 /* SBTUITestTunnelClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBTUITestTunnelClient.h; sourceTree = "<group>"; };
+		C30D56C423438CF60096B006 /* SBTUITestTunnelClientProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBTUITestTunnelClientProtocol.h; sourceTree = "<group>"; };
+		C30D56C523438CF60096B006 /* XCTestCase+AppExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XCTestCase+AppExtension.m"; sourceTree = "<group>"; };
+		C30D56C623438CF60096B006 /* SBTUITunneledApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBTUITunneledApplication.m; sourceTree = "<group>"; };
+		C3C4894C23424DF500F288C7 /* UITestKitCommon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UITestKitCommon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3C4894E23424DF500F288C7 /* UITestKitCommon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UITestKitCommon.h; sourceTree = "<group>"; };
+		C3C4894F23424DF500F288C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE047570231E70D600108221 /* UITestKitServer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UITestKitServer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE047572231E70D600108221 /* UITestKitServer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UITestKitServer.h; sourceTree = "<group>"; };
 		CE047573231E70D600108221 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CE074E11231D577A00A50F4E /* SBTUITestTunnelClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBTUITestTunnelClient.m; sourceTree = "<group>"; };
-		CE074E12231D577A00A50F4E /* SBTUITunneledApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBTUITunneledApplication.h; sourceTree = "<group>"; };
-		CE074E13231D577A00A50F4E /* XCTestCase+AppExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XCTestCase+AppExtension.m"; sourceTree = "<group>"; };
-		CE074E14231D577A00A50F4E /* XCTestCase+Swizzles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "XCTestCase+Swizzles.h"; sourceTree = "<group>"; };
-		CE074E15231D577A00A50F4E /* SBTUITestTunnelClientProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBTUITestTunnelClientProtocol.h; sourceTree = "<group>"; };
-		CE074E16231D577A00A50F4E /* SBTUITunneledApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBTUITunneledApplication.m; sourceTree = "<group>"; };
-		CE074E17231D577A00A50F4E /* SBTUITestTunnelClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBTUITestTunnelClient.h; sourceTree = "<group>"; };
-		CE074E18231D577A00A50F4E /* XCTestCase+Swizzles.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XCTestCase+Swizzles.m"; sourceTree = "<group>"; };
-		CE074E19231D577A00A50F4E /* XCTestCase+AppExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "XCTestCase+AppExtension.h"; sourceTree = "<group>"; };
-		CE074E24231D578400A50F4E /* NSData+gzip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+gzip.h"; sourceTree = "<group>"; };
-		CE074E25231D578400A50F4E /* SBTSwizzleHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBTSwizzleHelpers.h; sourceTree = "<group>"; };
-		CE074E26231D578400A50F4E /* NSURLRequest+HTTPBodyFix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLRequest+HTTPBodyFix.h"; sourceTree = "<group>"; };
-		CE074E27231D578400A50F4E /* SBTUITestTunnel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBTUITestTunnel.m; sourceTree = "<group>"; };
-		CE074E28231D578400A50F4E /* SBTMonitoredNetworkRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBTMonitoredNetworkRequest.h; sourceTree = "<group>"; };
-		CE074E29231D578400A50F4E /* SBTRequestMatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBTRequestMatch.m; sourceTree = "<group>"; };
-		CE074E2A231D578400A50F4E /* SBTRewrite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBTRewrite.m; sourceTree = "<group>"; };
-		CE074E2B231D578400A50F4E /* NSURLRequest+SBTUITestTunnelMatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLRequest+SBTUITestTunnelMatch.m"; sourceTree = "<group>"; };
-		CE074E2C231D578400A50F4E /* SBTStubResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBTStubResponse.m; sourceTree = "<group>"; };
-		CE074E2D231D578400A50F4E /* NSString+SwiftDemangle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SwiftDemangle.m"; sourceTree = "<group>"; };
-		CE074E2E231D578400A50F4E /* SBTMonitoredNetworkRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBTMonitoredNetworkRequest.m; sourceTree = "<group>"; };
-		CE074E2F231D578400A50F4E /* SBTUITestTunnel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBTUITestTunnel.h; sourceTree = "<group>"; };
-		CE074E30231D578400A50F4E /* NSURLRequest+HTTPBodyFix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLRequest+HTTPBodyFix.m"; sourceTree = "<group>"; };
-		CE074E31231D578400A50F4E /* NSData+gzip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+gzip.m"; sourceTree = "<group>"; };
-		CE074E32231D578400A50F4E /* SBTStubResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBTStubResponse.h; sourceTree = "<group>"; };
-		CE074E33231D578400A50F4E /* NSURLRequest+SBTUITestTunnelMatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLRequest+SBTUITestTunnelMatch.h"; sourceTree = "<group>"; };
-		CE074E34231D578400A50F4E /* SBTRewrite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBTRewrite.h; sourceTree = "<group>"; };
-		CE074E35231D578400A50F4E /* SBTRequestMatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBTRequestMatch.h; sourceTree = "<group>"; };
-		CE074E36231D578400A50F4E /* NSString+SwiftDemangle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SwiftDemangle.h"; sourceTree = "<group>"; };
-		CE074E4B231D578A00A50F4E /* NSURLSession+HTTPBodyFix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLSession+HTTPBodyFix.h"; sourceTree = "<group>"; };
-		CE074E4C231D578A00A50F4E /* SBTProxyURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBTProxyURLProtocol.h; sourceTree = "<group>"; };
-		CE074E4D231D578A00A50F4E /* UIView+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extensions.m"; sourceTree = "<group>"; };
-		CE074E4E231D578A00A50F4E /* UIViewController+SBTUITestTunnel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+SBTUITestTunnel.m"; sourceTree = "<group>"; };
-		CE074E4F231D578A00A50F4E /* UITextField+DisableAutocomplete.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+DisableAutocomplete.m"; sourceTree = "<group>"; };
-		CE074E50231D578A00A50F4E /* NSURLSessionConfiguration+SBTUITestTunnel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLSessionConfiguration+SBTUITestTunnel.h"; sourceTree = "<group>"; };
-		CE074E51231D578A00A50F4E /* SBTUITestTunnelServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBTUITestTunnelServer.h; sourceTree = "<group>"; };
-		CE074E52231D578A00A50F4E /* SBTAnyViewControllerPreviewing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBTAnyViewControllerPreviewing.h; sourceTree = "<group>"; };
-		CE074E53231D578A00A50F4E /* NSData+SHA1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+SHA1.m"; sourceTree = "<group>"; };
-		CE074E54231D578A00A50F4E /* SBTProxyURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBTProxyURLProtocol.m; sourceTree = "<group>"; };
-		CE074E55231D578A00A50F4E /* NSURLSession+HTTPBodyFix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLSession+HTTPBodyFix.m"; sourceTree = "<group>"; };
-		CE074E56231D578A00A50F4E /* UIView+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extensions.h"; sourceTree = "<group>"; };
-		CE074E57231D578A00A50F4E /* UITextField+DisableAutocomplete.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+DisableAutocomplete.h"; sourceTree = "<group>"; };
-		CE074E58231D578A00A50F4E /* UIViewController+SBTUITestTunnel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+SBTUITestTunnel.h"; sourceTree = "<group>"; };
-		CE074E59231D578A00A50F4E /* NSData+SHA1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+SHA1.h"; sourceTree = "<group>"; };
-		CE074E5A231D578A00A50F4E /* SBTAnyViewControllerPreviewing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBTAnyViewControllerPreviewing.m; sourceTree = "<group>"; };
-		CE074E5B231D578A00A50F4E /* SBTUITestTunnelServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBTUITestTunnelServer.m; sourceTree = "<group>"; };
-		CE074E5C231D578A00A50F4E /* NSURLSessionConfiguration+SBTUITestTunnel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLSessionConfiguration+SBTUITestTunnel.m"; sourceTree = "<group>"; };
 		CE074E70231D57CE00A50F4E /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		CE074EA4231D641F00A50F4E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CE074EA6231D642600A50F4E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -137,11 +147,21 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		C3C4894923424DF500F288C7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3C4897623424EAA00F288C7 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CE04756D231E70D600108221 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C30D56D22343935C0096B006 /* Foundation.framework in Frameworks */,
 				CE04759D231E713700108221 /* GCDWebServers.framework in Frameworks */,
+				C3C489C32343544C00F288C7 /* UITestKitCommon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,12 +169,70 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C30D56D0234393150096B006 /* Foundation.framework in Frameworks */,
+				C3C489C22343544500F288C7 /* UITestKitCommon.framework in Frameworks */,
+				C30D56D12343932D0096B006 /* UITestKitServer.framework in Frameworks */,
+				C3C4897723433D7A00F288C7 /* XCTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C30D566D23438C8A0096B006 /* Private */ = {
+			isa = PBXGroup;
+			children = (
+				C30D567823438C8A0096B006 /* CLLocationManager+Swizzles.h */,
+				C30D567123438C8A0096B006 /* CLLocationManager+Swizzles.m */,
+				C30D567C23438C8A0096B006 /* NSData+SHA1.h */,
+				C30D567423438C8A0096B006 /* NSData+SHA1.m */,
+				C30D566E23438C8A0096B006 /* NSURLSession+HTTPBodyFix.h */,
+				C30D567723438C8A0096B006 /* NSURLSession+HTTPBodyFix.m */,
+				C30D567323438C8A0096B006 /* NSURLSessionConfiguration+SBTUITestTunnel.h */,
+				C30D567D23438C8A0096B006 /* NSURLSessionConfiguration+SBTUITestTunnel.m */,
+				C30D566F23438C8A0096B006 /* SBTProxyURLProtocol.h */,
+				C30D567623438C8A0096B006 /* SBTProxyURLProtocol.m */,
+				C30D567A23438C8A0096B006 /* UITextField+DisableAutocomplete.h */,
+				C30D567223438C8A0096B006 /* UITextField+DisableAutocomplete.m */,
+				C30D567923438C8A0096B006 /* UIView+Extensions.h */,
+				C30D567023438C8A0096B006 /* UIView+Extensions.m */,
+				C30D567B23438C8A0096B006 /* UNUserNotificationCenter+Swizzles.h */,
+				C30D567523438C8A0096B006 /* UNUserNotificationCenter+Swizzles.m */,
+			);
+			path = Private;
+			sourceTree = "<group>";
+		};
+		C30D569D23438CB30096B006 /* Private */ = {
+			isa = PBXGroup;
+			children = (
+				C30D569E23438CB30096B006 /* NSData+gzip.h */,
+				C30D569F23438CB30096B006 /* NSURLRequest+HTTPBodyFix.h */,
+				C30D56A023438CB30096B006 /* NSString+SwiftDemangle.m */,
+				C30D56A123438CB30096B006 /* NSURLRequest+HTTPBodyFix.m */,
+				C30D56A223438CB30096B006 /* NSData+gzip.m */,
+				C30D56A323438CB30096B006 /* NSString+SwiftDemangle.h */,
+			);
+			path = Private;
+			sourceTree = "<group>";
+		};
+		C30D56BF23438CF60096B006 /* Private */ = {
+			isa = PBXGroup;
+			children = (
+				C30D56C023438CF60096B006 /* XCTestCase+Swizzles.h */,
+				C30D56C123438CF60096B006 /* XCTestCase+Swizzles.m */,
+			);
+			path = Private;
+			sourceTree = "<group>";
+		};
+		C3C4894D23424DF500F288C7 /* UITestKitCommon */ = {
+			isa = PBXGroup;
+			children = (
+				C3C4894E23424DF500F288C7 /* UITestKitCommon.h */,
+				C3C4894F23424DF500F288C7 /* Info.plist */,
+			);
+			path = UITestKitCommon;
+			sourceTree = "<group>";
+		};
 		CE047571231E70D600108221 /* UITestKitServer */ = {
 			isa = PBXGroup;
 			children = (
@@ -167,11 +245,12 @@
 		CE074DFB231D569300A50F4E = {
 			isa = PBXGroup;
 			children = (
+				CE074E6F231D57CE00A50F4E /* Frameworks */,
+				CE074E06231D569300A50F4E /* Products */,
 				CE074E07231D569300A50F4E /* UITestKit */,
 				CE074ED5231D698200A50F4E /* UITestKitClient */,
+				C3C4894D23424DF500F288C7 /* UITestKitCommon */,
 				CE047571231E70D600108221 /* UITestKitServer */,
-				CE074E06231D569300A50F4E /* Products */,
-				CE074E6F231D57CE00A50F4E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -180,6 +259,7 @@
 			children = (
 				CE074ED4231D698200A50F4E /* UITestKitClient.framework */,
 				CE047570231E70D600108221 /* UITestKitServer.framework */,
+				C3C4894C23424DF500F288C7 /* UITestKitCommon.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -198,15 +278,14 @@
 		CE074E10231D577A00A50F4E /* Client */ = {
 			isa = PBXGroup;
 			children = (
-				CE074E17231D577A00A50F4E /* SBTUITestTunnelClient.h */,
-				CE074E11231D577A00A50F4E /* SBTUITestTunnelClient.m */,
-				CE074E15231D577A00A50F4E /* SBTUITestTunnelClientProtocol.h */,
-				CE074E12231D577A00A50F4E /* SBTUITunneledApplication.h */,
-				CE074E16231D577A00A50F4E /* SBTUITunneledApplication.m */,
-				CE074E19231D577A00A50F4E /* XCTestCase+AppExtension.h */,
-				CE074E13231D577A00A50F4E /* XCTestCase+AppExtension.m */,
-				CE074E14231D577A00A50F4E /* XCTestCase+Swizzles.h */,
-				CE074E18231D577A00A50F4E /* XCTestCase+Swizzles.m */,
+				C30D56BF23438CF60096B006 /* Private */,
+				C30D56C323438CF60096B006 /* SBTUITestTunnelClient.h */,
+				C30D56C223438CF60096B006 /* SBTUITestTunnelClient.m */,
+				C30D56C423438CF60096B006 /* SBTUITestTunnelClientProtocol.h */,
+				C30D56BD23438CF60096B006 /* SBTUITunneledApplication.h */,
+				C30D56C623438CF60096B006 /* SBTUITunneledApplication.m */,
+				C30D56BE23438CF60096B006 /* XCTestCase+AppExtension.h */,
+				C30D56C523438CF60096B006 /* XCTestCase+AppExtension.m */,
 			);
 			name = Client;
 			path = Pod/Client;
@@ -215,25 +294,20 @@
 		CE074E23231D578400A50F4E /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				CE074E24231D578400A50F4E /* NSData+gzip.h */,
-				CE074E31231D578400A50F4E /* NSData+gzip.m */,
-				CE074E36231D578400A50F4E /* NSString+SwiftDemangle.h */,
-				CE074E2D231D578400A50F4E /* NSString+SwiftDemangle.m */,
-				CE074E26231D578400A50F4E /* NSURLRequest+HTTPBodyFix.h */,
-				CE074E30231D578400A50F4E /* NSURLRequest+HTTPBodyFix.m */,
-				CE074E33231D578400A50F4E /* NSURLRequest+SBTUITestTunnelMatch.h */,
-				CE074E2B231D578400A50F4E /* NSURLRequest+SBTUITestTunnelMatch.m */,
-				CE074E28231D578400A50F4E /* SBTMonitoredNetworkRequest.h */,
-				CE074E2E231D578400A50F4E /* SBTMonitoredNetworkRequest.m */,
-				CE074E35231D578400A50F4E /* SBTRequestMatch.h */,
-				CE074E29231D578400A50F4E /* SBTRequestMatch.m */,
-				CE074E34231D578400A50F4E /* SBTRewrite.h */,
-				CE074E2A231D578400A50F4E /* SBTRewrite.m */,
-				CE074E32231D578400A50F4E /* SBTStubResponse.h */,
-				CE074E2C231D578400A50F4E /* SBTStubResponse.m */,
-				CE074E25231D578400A50F4E /* SBTSwizzleHelpers.h */,
-				CE074E2F231D578400A50F4E /* SBTUITestTunnel.h */,
-				CE074E27231D578400A50F4E /* SBTUITestTunnel.m */,
+				C30D569A23438CB20096B006 /* NSURLRequest+SBTUITestTunnelMatch.h */,
+				C30D569B23438CB20096B006 /* NSURLRequest+SBTUITestTunnelMatch.m */,
+				C30D569D23438CB30096B006 /* Private */,
+				C30D56A423438CB30096B006 /* SBTMonitoredNetworkRequest.h */,
+				C30D569923438CB20096B006 /* SBTMonitoredNetworkRequest.m */,
+				C30D56A723438CB30096B006 /* SBTRequestMatch.h */,
+				C30D569723438CB20096B006 /* SBTRequestMatch.m */,
+				C30D56A923438CB30096B006 /* SBTRewrite.h */,
+				C30D569823438CB20096B006 /* SBTRewrite.m */,
+				C30D569C23438CB20096B006 /* SBTStubResponse.h */,
+				C30D56A823438CB30096B006 /* SBTStubResponse.m */,
+				C30D56A523438CB30096B006 /* SBTSwizzleHelpers.h */,
+				C30D569623438CB20096B006 /* SBTUITestTunnel.h */,
+				C30D56A623438CB30096B006 /* SBTUITestTunnel.m */,
 			);
 			name = Common;
 			path = Pod/Common;
@@ -242,24 +316,13 @@
 		CE074E4A231D578A00A50F4E /* Server */ = {
 			isa = PBXGroup;
 			children = (
-				CE074E59231D578A00A50F4E /* NSData+SHA1.h */,
-				CE074E53231D578A00A50F4E /* NSData+SHA1.m */,
-				CE074E4B231D578A00A50F4E /* NSURLSession+HTTPBodyFix.h */,
-				CE074E55231D578A00A50F4E /* NSURLSession+HTTPBodyFix.m */,
-				CE074E50231D578A00A50F4E /* NSURLSessionConfiguration+SBTUITestTunnel.h */,
-				CE074E5C231D578A00A50F4E /* NSURLSessionConfiguration+SBTUITestTunnel.m */,
-				CE074E52231D578A00A50F4E /* SBTAnyViewControllerPreviewing.h */,
-				CE074E5A231D578A00A50F4E /* SBTAnyViewControllerPreviewing.m */,
-				CE074E4C231D578A00A50F4E /* SBTProxyURLProtocol.h */,
-				CE074E54231D578A00A50F4E /* SBTProxyURLProtocol.m */,
-				CE074E51231D578A00A50F4E /* SBTUITestTunnelServer.h */,
-				CE074E5B231D578A00A50F4E /* SBTUITestTunnelServer.m */,
-				CE074E57231D578A00A50F4E /* UITextField+DisableAutocomplete.h */,
-				CE074E4F231D578A00A50F4E /* UITextField+DisableAutocomplete.m */,
-				CE074E56231D578A00A50F4E /* UIView+Extensions.h */,
-				CE074E4D231D578A00A50F4E /* UIView+Extensions.m */,
-				CE074E58231D578A00A50F4E /* UIViewController+SBTUITestTunnel.h */,
-				CE074E4E231D578A00A50F4E /* UIViewController+SBTUITestTunnel.m */,
+				C30D566D23438C8A0096B006 /* Private */,
+				C30D567E23438C8A0096B006 /* SBTAnyViewControllerPreviewing.h */,
+				C30D567F23438C8A0096B006 /* SBTAnyViewControllerPreviewing.m */,
+				C30D566A23438C890096B006 /* SBTUITestTunnelServer.h */,
+				C30D566C23438C890096B006 /* SBTUITestTunnelServer.m */,
+				C30D566923438C890096B006 /* UIViewController+SBTUITestTunnel.h */,
+				C30D566B23438C890096B006 /* UIViewController+SBTUITestTunnel.m */,
 			);
 			name = Server;
 			path = Pod/Server;
@@ -288,30 +351,40 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		C3C4894723424DF500F288C7 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3C4895C23424DF500F288C7 /* UITestKitCommon.h in Headers */,
+				C30D56AE23438CB30096B006 /* NSURLRequest+SBTUITestTunnelMatch.h in Headers */,
+				C30D56B023438CB30096B006 /* SBTStubResponse.h in Headers */,
+				C30D56BA23438CB30096B006 /* SBTRequestMatch.h in Headers */,
+				C30D56BC23438CB30096B006 /* SBTRewrite.h in Headers */,
+				C30D56AA23438CB30096B006 /* SBTUITestTunnel.h in Headers */,
+				C30D56B723438CB30096B006 /* SBTMonitoredNetworkRequest.h in Headers */,
+				C30D56B123438CB30096B006 /* NSData+gzip.h in Headers */,
+				C30D56B623438CB30096B006 /* NSString+SwiftDemangle.h in Headers */,
+				C30D56B223438CB30096B006 /* NSURLRequest+HTTPBodyFix.h in Headers */,
+				C30D56B823438CB30096B006 /* SBTSwizzleHelpers.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CE04756B231E70D600108221 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE047585231E70F200108221 /* UIViewController+SBTUITestTunnel.h in Headers */,
-				CE04758B231E70FA00108221 /* SBTSwizzleHelpers.h in Headers */,
-				CE047583231E70F200108221 /* UIView+Extensions.h in Headers */,
-				CE04758E231E70FA00108221 /* SBTMonitoredNetworkRequest.h in Headers */,
-				CE047578231E70F200108221 /* NSURLSession+HTTPBodyFix.h in Headers */,
-				CE04759B231E70FA00108221 /* SBTRequestMatch.h in Headers */,
-				CE047599231E70FA00108221 /* NSURLRequest+SBTUITestTunnelMatch.h in Headers */,
-				CE04759C231E70FA00108221 /* NSString+SwiftDemangle.h in Headers */,
-				CE04758A231E70FA00108221 /* NSData+gzip.h in Headers */,
-				CE04757D231E70F200108221 /* NSURLSessionConfiguration+SBTUITestTunnel.h in Headers */,
-				CE047586231E70F200108221 /* NSData+SHA1.h in Headers */,
 				CE047574231E70D600108221 /* UITestKitServer.h in Headers */,
-				CE047579231E70F200108221 /* SBTProxyURLProtocol.h in Headers */,
-				CE047584231E70F200108221 /* UITextField+DisableAutocomplete.h in Headers */,
-				CE04757F231E70F200108221 /* SBTAnyViewControllerPreviewing.h in Headers */,
-				CE04759A231E70FA00108221 /* SBTRewrite.h in Headers */,
-				CE047595231E70FA00108221 /* SBTUITestTunnel.h in Headers */,
-				CE047598231E70FA00108221 /* SBTStubResponse.h in Headers */,
-				CE04757E231E70F200108221 /* SBTUITestTunnelServer.h in Headers */,
-				CE04758C231E70FA00108221 /* NSURLRequest+HTTPBodyFix.h in Headers */,
+				C30D568023438C8A0096B006 /* UIViewController+SBTUITestTunnel.h in Headers */,
+				C30D568123438C8A0096B006 /* SBTUITestTunnelServer.h in Headers */,
+				C30D568523438C8A0096B006 /* SBTProxyURLProtocol.h in Headers */,
+				C30D568E23438C8A0096B006 /* CLLocationManager+Swizzles.h in Headers */,
+				C30D568923438C8A0096B006 /* NSURLSessionConfiguration+SBTUITestTunnel.h in Headers */,
+				C30D568423438C8A0096B006 /* NSURLSession+HTTPBodyFix.h in Headers */,
+				C30D568F23438C8A0096B006 /* UIView+Extensions.h in Headers */,
+				C30D569023438C8A0096B006 /* UITextField+DisableAutocomplete.h in Headers */,
+				C30D569123438C8A0096B006 /* UNUserNotificationCenter+Swizzles.h in Headers */,
+				C30D569223438C8A0096B006 /* NSData+SHA1.h in Headers */,
+				C30D569423438C8A0096B006 /* SBTAnyViewControllerPreviewing.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,28 +392,36 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE074EDD231D699A00A50F4E /* SBTUITunneledApplication.h in Headers */,
-				CE074EF0231D69A000A50F4E /* SBTUITestTunnel.h in Headers */,
-				CE074EF5231D69A000A50F4E /* SBTRewrite.h in Headers */,
-				CE074EE5231D69A000A50F4E /* NSData+gzip.h in Headers */,
-				CE074EF6231D69A000A50F4E /* SBTRequestMatch.h in Headers */,
-				CE074EE0231D699A00A50F4E /* SBTUITestTunnelClientProtocol.h in Headers */,
-				CE074EF3231D69A000A50F4E /* SBTStubResponse.h in Headers */,
-				CE074EF7231D69A000A50F4E /* NSString+SwiftDemangle.h in Headers */,
-				CE074EE6231D69A000A50F4E /* SBTSwizzleHelpers.h in Headers */,
-				CE074EE7231D69A000A50F4E /* NSURLRequest+HTTPBodyFix.h in Headers */,
-				CE074EE4231D699A00A50F4E /* XCTestCase+AppExtension.h in Headers */,
-				CE074EF4231D69A000A50F4E /* NSURLRequest+SBTUITestTunnelMatch.h in Headers */,
-				CE074EE9231D69A000A50F4E /* SBTMonitoredNetworkRequest.h in Headers */,
-				CE074EDF231D699A00A50F4E /* XCTestCase+Swizzles.h in Headers */,
-				CE074EE2231D699A00A50F4E /* SBTUITestTunnelClient.h in Headers */,
 				CE074ED8231D698200A50F4E /* UITestKitClient.h in Headers */,
+				C30D56CC23438CF60096B006 /* SBTUITestTunnelClient.h in Headers */,
+				C30D56C923438CF60096B006 /* XCTestCase+Swizzles.h in Headers */,
+				C30D56CD23438CF60096B006 /* SBTUITestTunnelClientProtocol.h in Headers */,
+				C30D56C823438CF60096B006 /* XCTestCase+AppExtension.h in Headers */,
+				C30D56C723438CF60096B006 /* SBTUITunneledApplication.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		C3C4894B23424DF500F288C7 /* UITestKitCommon */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C3C4895D23424DF500F288C7 /* Build configuration list for PBXNativeTarget "UITestKitCommon" */;
+			buildPhases = (
+				C3C4894723424DF500F288C7 /* Headers */,
+				C3C4894823424DF500F288C7 /* Sources */,
+				C3C4894923424DF500F288C7 /* Frameworks */,
+				C3C4894A23424DF500F288C7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = UITestKitCommon;
+			productName = UITestKitCommon;
+			productReference = C3C4894C23424DF500F288C7 /* UITestKitCommon.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		CE04756F231E70D600108221 /* UITestKitServer */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = CE047575231E70D600108221 /* Build configuration list for PBXNativeTarget "UITestKitServer" */;
@@ -353,6 +434,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				C3C489EE2343565B00F288C7 /* PBXTargetDependency */,
 			);
 			name = UITestKitServer;
 			productName = UITestKitServer;
@@ -383,9 +465,13 @@
 		CE074DFC231D569300A50F4E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 1030;
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = Qonto;
 				TargetAttributes = {
+					C3C4894B23424DF500F288C7 = {
+						CreatedOnToolsVersion = 10.3;
+					};
 					CE04756F231E70D600108221 = {
 						CreatedOnToolsVersion = 10.2.1;
 					};
@@ -400,6 +486,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = CE074DFB231D569300A50F4E;
 			productRefGroup = CE074E06231D569300A50F4E /* Products */;
@@ -408,11 +495,19 @@
 			targets = (
 				CE074ED3231D698200A50F4E /* UITestKitClient */,
 				CE04756F231E70D600108221 /* UITestKitServer */,
+				C3C4894B23424DF500F288C7 /* UITestKitCommon */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		C3C4894A23424DF500F288C7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CE04756E231E70D600108221 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -430,28 +525,37 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		C3C4894823424DF500F288C7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C30D56B423438CB30096B006 /* NSURLRequest+HTTPBodyFix.m in Sources */,
+				C30D56B923438CB30096B006 /* SBTUITestTunnel.m in Sources */,
+				C30D56AF23438CB30096B006 /* NSURLRequest+SBTUITestTunnelMatch.m in Sources */,
+				C30D56AC23438CB30096B006 /* SBTRewrite.m in Sources */,
+				C30D56B323438CB30096B006 /* NSString+SwiftDemangle.m in Sources */,
+				C30D56AB23438CB30096B006 /* SBTRequestMatch.m in Sources */,
+				C30D56BB23438CB30096B006 /* SBTStubResponse.m in Sources */,
+				C30D56AD23438CB30096B006 /* SBTMonitoredNetworkRequest.m in Sources */,
+				C30D56B523438CB30096B006 /* NSData+gzip.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CE04756C231E70D600108221 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE047587231E70F200108221 /* SBTAnyViewControllerPreviewing.m in Sources */,
-				CE047581231E70F200108221 /* SBTProxyURLProtocol.m in Sources */,
-				CE047593231E70FA00108221 /* NSString+SwiftDemangle.m in Sources */,
-				CE047590231E70FA00108221 /* SBTRewrite.m in Sources */,
-				CE047597231E70FA00108221 /* NSData+gzip.m in Sources */,
-				CE047594231E70FA00108221 /* SBTMonitoredNetworkRequest.m in Sources */,
-				CE04757C231E70F200108221 /* UITextField+DisableAutocomplete.m in Sources */,
-				CE04757B231E70F200108221 /* UIViewController+SBTUITestTunnel.m in Sources */,
-				CE047589231E70F200108221 /* NSURLSessionConfiguration+SBTUITestTunnel.m in Sources */,
-				CE047582231E70F200108221 /* NSURLSession+HTTPBodyFix.m in Sources */,
-				CE04757A231E70F200108221 /* UIView+Extensions.m in Sources */,
-				CE047591231E70FA00108221 /* NSURLRequest+SBTUITestTunnelMatch.m in Sources */,
-				CE047596231E70FA00108221 /* NSURLRequest+HTTPBodyFix.m in Sources */,
-				CE04758F231E70FA00108221 /* SBTRequestMatch.m in Sources */,
-				CE047592231E70FA00108221 /* SBTStubResponse.m in Sources */,
-				CE04758D231E70FA00108221 /* SBTUITestTunnel.m in Sources */,
-				CE047588231E70F200108221 /* SBTUITestTunnelServer.m in Sources */,
-				CE047580231E70F200108221 /* NSData+SHA1.m in Sources */,
+				C30D569323438C8A0096B006 /* NSURLSessionConfiguration+SBTUITestTunnel.m in Sources */,
+				C30D568D23438C8A0096B006 /* NSURLSession+HTTPBodyFix.m in Sources */,
+				C30D569523438C8A0096B006 /* SBTAnyViewControllerPreviewing.m in Sources */,
+				C30D568C23438C8A0096B006 /* SBTProxyURLProtocol.m in Sources */,
+				C30D568823438C8A0096B006 /* UITextField+DisableAutocomplete.m in Sources */,
+				C30D568A23438C8A0096B006 /* NSData+SHA1.m in Sources */,
+				C30D568723438C8A0096B006 /* CLLocationManager+Swizzles.m in Sources */,
+				C30D568323438C8A0096B006 /* SBTUITestTunnelServer.m in Sources */,
+				C30D568623438C8A0096B006 /* UIView+Extensions.m in Sources */,
+				C30D568B23438C8A0096B006 /* UNUserNotificationCenter+Swizzles.m in Sources */,
+				C30D568223438C8A0096B006 /* UIViewController+SBTUITestTunnel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -459,33 +563,92 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE074EEC231D69A000A50F4E /* NSURLRequest+SBTUITestTunnelMatch.m in Sources */,
-				CE074EE1231D699A00A50F4E /* SBTUITunneledApplication.m in Sources */,
-				CE074EF2231D69A000A50F4E /* NSData+gzip.m in Sources */,
-				CE074EEE231D69A000A50F4E /* NSString+SwiftDemangle.m in Sources */,
-				CE074EE3231D699A00A50F4E /* XCTestCase+Swizzles.m in Sources */,
-				CE074EE8231D69A000A50F4E /* SBTUITestTunnel.m in Sources */,
-				CE074EDE231D699A00A50F4E /* XCTestCase+AppExtension.m in Sources */,
-				CE074EF1231D69A000A50F4E /* NSURLRequest+HTTPBodyFix.m in Sources */,
-				CE074EEF231D69A000A50F4E /* SBTMonitoredNetworkRequest.m in Sources */,
-				CE074EDC231D699A00A50F4E /* SBTUITestTunnelClient.m in Sources */,
-				CE074EED231D69A000A50F4E /* SBTStubResponse.m in Sources */,
-				CE074EEB231D69A000A50F4E /* SBTRewrite.m in Sources */,
-				CE074EEA231D69A000A50F4E /* SBTRequestMatch.m in Sources */,
+				C30D56CE23438CF60096B006 /* XCTestCase+AppExtension.m in Sources */,
+				C30D56CB23438CF60096B006 /* SBTUITestTunnelClient.m in Sources */,
+				C30D56CA23438CF60096B006 /* XCTestCase+Swizzles.m in Sources */,
+				C30D56CF23438CF60096B006 /* SBTUITunneledApplication.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		C3C489EE2343565B00F288C7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C3C4894B23424DF500F288C7 /* UITestKitCommon */;
+			targetProxy = C3C489ED2343565B00F288C7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		C3C4895E23424DF500F288C7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = "$(PLATFORM_DIR)/Developer/Library/Frameworks";
+				INFOPLIST_FILE = UITestKitCommon/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.uitestkit.UITestKitCommon;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C3C4895F23424DF500F288C7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = "$(PLATFORM_DIR)/Developer/Library/Frameworks";
+				INFOPLIST_FILE = UITestKitCommon/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.uitestkit.UITestKitCommon;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		CE047576231E70D600108221 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -517,6 +680,7 @@
 		CE047577231E70D600108221 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -584,9 +748,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(PLATFORM_DIR)/Developer/Library/Frameworks";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -651,6 +816,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(PLATFORM_DIR)/Developer/Library/Frameworks";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -674,8 +840,10 @@
 		CE074EDA231D698200A50F4E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -702,8 +870,10 @@
 		CE074EDB231D698200A50F4E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -730,6 +900,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		C3C4895D23424DF500F288C7 /* Build configuration list for PBXNativeTarget "UITestKitCommon" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C3C4895E23424DF500F288C7 /* Debug */,
+				C3C4895F23424DF500F288C7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		CE047575231E70D600108221 /* Build configuration list for PBXNativeTarget "UITestKitServer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

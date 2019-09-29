@@ -23,7 +23,7 @@
 #if ENABLE_UITUNNEL
 
 #import <Foundation/Foundation.h>
-#import "SBTRequestMatch.h"
+#import <UITestKitCommon/SBTRequestMatch.h>
 
 @class SBTStubResponse;
 @class SBTRewrite;

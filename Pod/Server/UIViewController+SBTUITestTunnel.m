@@ -23,8 +23,7 @@
 #if ENABLE_UITUNNEL
 
 #import "UIViewController+SBTUITestTunnel.h"
-#import "SBTSwizzleHelpers.h"
-#import <UIKit/UIKit.h>
+#import <UITestKitCommon/SBTSwizzleHelpers.h>
 
 @interface SBTUIViewControllerPreviewingGroup : NSObject
 

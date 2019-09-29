@@ -24,8 +24,8 @@
 
 #import <XCTest/XCTest.h>
 #import "SBTUITestTunnelClient.h"
-#import "SBTUITestTunnel.h"
-#import "NSURLRequest+SBTUITestTunnelMatch.h"
+#import <UITestKitCommon/SBTUITestTunnel.h>
+#import <UITestKitCommon/NSURLRequest+SBTUITestTunnelMatch.h>
 #include <ifaddrs.h>
 #include <arpa/inet.h>
 
@@ -46,8 +46,8 @@ const NSString *SBTUITunnelJsonMimeType = @"application/json";
 @property (nonatomic, strong) NSString *bonjourName;
 @property (nonatomic, strong) NSNetService *bonjourBrowser;
 @property (nonatomic, strong) void (^startupBlock)(void);
-@property (nonatomic, copy) NSArray <NSString *> *initialLaunchArguments;
-@property (nonatomic, copy) NSDictionary <NSString *, NSString *> *initialLaunchEnvironment;
+@property (nonatomic, copy) NSArray<NSString *> *initialLaunchArguments;
+@property (nonatomic, copy) NSDictionary<NSString *, NSString *> *initialLaunchEnvironment;
 @property (nonatomic, strong) NSString *(^connectionlessBlock)(NSString *, NSDictionary<NSString *, NSString *> *);
 
 @end
@@ -314,7 +314,7 @@ static NSTimeInterval SBTUITunneledApplicationDefaultTimeout = 30.0;
     return [self sendSynchronousRequestWithPath:SBTUITunneledApplicationCommandMonitorMatching params:params];
 }
 
-- (NSArray<SBTMonitoredNetworkRequest *> *)monitoredRequestsPeekAll;
+- (NSArray<SBTMonitoredNetworkRequest *> *)monitoredRequestsPeekAll
 {
     NSString *objectBase64 = [self sendSynchronousRequestWithPath:SBTUITunneledApplicationCommandMonitorPeek params:nil];
     if (objectBase64) {
@@ -326,7 +326,7 @@ static NSTimeInterval SBTUITunneledApplicationDefaultTimeout = 30.0;
     return nil;
 }
 
-- (NSArray<SBTMonitoredNetworkRequest *> *)monitoredRequestsFlushAll;
+- (NSArray<SBTMonitoredNetworkRequest *> *)monitoredRequestsFlushAll
 {
     NSString *objectBase64 = [self sendSynchronousRequestWithPath:SBTUITunneledApplicationCommandMonitorFlush params:nil];
     if (objectBase64) {
@@ -673,7 +673,7 @@ static NSTimeInterval SBTUITunneledApplicationDefaultTimeout = 30.0;
     return _userInterfaceAnimationSpeed;
 }
 
-#pragma mark - XCUITest extensions
+#pragma mark - XCUITest scroll extensions
 
 - (BOOL)scrollTableViewWithIdentifier:(nonnull NSString *)identifier toRow:(NSInteger)row animated:(BOOL)flag
 {
@@ -709,14 +709,72 @@ static NSTimeInterval SBTUITunneledApplicationDefaultTimeout = 30.0;
     return [[self sendSynchronousRequestWithPath:SBTUITunneledApplicationCommandXCUIExtensionScrollScrollView params:params] boolValue];
 }
 
+#pragma mark - XCUITest 3D touch extensions
+
 - (BOOL)forcePressViewWithIdentifier:(nonnull NSString *)identifier
 {
     NSAssert([identifier length] > 0, @"Invalid empty identifier!");
     
-    NSDictionary<NSString *, NSString *> *params = @{SBTUITunnelObjectKey: identifier };
+    NSDictionary<NSString *, NSString *> *params = @{SBTUITunnelObjectKey: identifier};
     
     return [[self sendSynchronousRequestWithPath:SBTUITunneledApplicationCommandXCUIExtensionForceTouchView params:params] boolValue];
 }
+
+#pragma mark - XCUITest CLLocation extensions
+
+- (BOOL)coreLocationStubEnabled:(BOOL)flag
+{
+    NSDictionary<NSString *, NSString *> *params = @{SBTUITunnelObjectValueKey: flag ? @"YES" : @"NO"};
+    
+    return [[self sendSynchronousRequestWithPath:SBTUITunneledApplicationCommandCoreLocationStubbing params:params] boolValue];
+}
+
+- (BOOL)coreLocationStubAuthorizationStatus:(CLAuthorizationStatus)status
+{
+    NSDictionary<NSString *, NSString *> *params = @{SBTUITunnelObjectValueKey: [@(status) stringValue]};
+    
+    return [[self sendSynchronousRequestWithPath:SBTUITunneledApplicationCommandCoreLocationStubAuthorizationStatus params:params] boolValue];
+}
+
+- (BOOL)coreLocationStubLocationServicesEnabled:(BOOL)flag
+{
+    NSDictionary<NSString *, NSString *> *params = @{SBTUITunnelObjectValueKey: flag ? @"YES" : @"NO"};
+    
+    return [[self sendSynchronousRequestWithPath:SBTUITunneledApplicationCommandCoreLocationStubServiceStatus params:params] boolValue];
+}
+
+- (BOOL)coreLocationNotifyLocationUpdate:(nonnull NSArray<CLLocation *>*)locations
+{
+    NSAssert([locations count] > 0, @"Location array should contain at least one element!");
+    
+    NSDictionary<NSString *, NSString *> *params = @{SBTUITunnelObjectKey: [self base64SerializeObject:locations]};
+    
+    return [[self sendSynchronousRequestWithPath:SBTUITunneledApplicationCommandCoreLocationNotifyUpdate params:params] boolValue];
+}
+
+- (BOOL)coreLocationNotifyLocationError:(nonnull NSError *)error
+{
+    NSDictionary<NSString *, NSString *> *params = @{SBTUITunnelObjectKey: [self base64SerializeObject:error]};
+    
+    return [[self sendSynchronousRequestWithPath:SBTUITunneledApplicationCommandCoreLocationNotifyFailure params:params] boolValue];
+}
+
+#pragma mark - XCUITest UNUserNotificationCenter extensions
+
+- (BOOL)notificationCenterStubEnabled:(BOOL)flag API_AVAILABLE(ios(10))
+{
+    NSDictionary<NSString *, NSString *> *params = @{SBTUITunnelObjectValueKey: flag ? @"YES" : @"NO"};
+    
+    return [[self sendSynchronousRequestWithPath:SBTUITunneledApplicationCommandNotificationCenterStubbing params:params] boolValue];
+}
+
+- (BOOL)notificationCenterStubAuthorizationStatus:(UNAuthorizationStatus)status API_AVAILABLE(ios(10))
+{
+    NSDictionary<NSString *, NSString *> *params = @{SBTUITunnelObjectValueKey: [@(status) stringValue]};
+    
+    return [[self sendSynchronousRequestWithPath:SBTUITunneledApplicationCommandNotificationCenterStubAuthorizationStatus params:params] boolValue];
+}
+
 
 #pragma mark - Helper Methods
 

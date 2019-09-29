@@ -22,10 +22,13 @@
 
 #if ENABLE_UITUNNEL
 
-#import "SBTRequestMatch.h"
-#import "SBTRewrite.h"
-#import "SBTStubResponse.h"
-#import "SBTMonitoredNetworkRequest.h"
+#import <UITestKitCommon/SBTRequestMatch.h>
+#import <UITestKitCommon/SBTRewrite.h>
+#import <UITestKitCommon/SBTStubResponse.h>
+#import <UITestKitCommon/SBTMonitoredNetworkRequest.h>
+#import <CoreLocation/CLLocation.h>
+#import <CoreLocation/CLLocationManager.h>
+#import <UserNotifications/UNNotificationSettings.h>
 
 @protocol SBTUITestTunnelClientProtocol <NSObject>
 
@@ -489,7 +492,7 @@
  */
 - (NSInteger)userInterfaceAnimationSpeed;
 
-#pragma mark - XCUITest extensions
+#pragma mark - XCUITest scroll extensions
 
 /**
  *  Scroll UITablewViews view to the specified row (flattening sections if any).
@@ -524,6 +527,8 @@
  */
 - (BOOL)scrollScrollViewWithIdentifier:(nonnull NSString *)identifier toElementWitIdentifier:(nonnull NSString *)targetIdentifier animated:(BOOL)flag;
 
+#pragma mark - XCUITest 3D touch extensions
+
 /**
  *  Perform force touch pop interaction on the specified element
  *
@@ -532,6 +537,76 @@
  *  @return `YES` on success
  */
 - (BOOL)forcePressViewWithIdentifier:(nonnull NSString *)identifier;
+
+#pragma mark - XCUITest CLLocation extensions
+
+/**
+*  Enable CLLocationManager stubbing
+*
+*  @param flag stubbing status
+*
+*  @return `YES` on success
+*/
+- (BOOL)coreLocationStubEnabled:(BOOL)flag;
+
+/**
+*  Stub CLLocationManager authorizationStatus
+*
+*  @param status location authorization status. The default value returned by `+[CLLocationManager authorizationStatus]` when enabling core location stubbing is kCLAuthorizationStatusAuthorizedAlways
+*
+*  @return `YES` on success
+*/
+- (BOOL)coreLocationStubAuthorizationStatus:(CLAuthorizationStatus)status;
+
+/**
+*  Stub CLLocationManager locationServicesEnabled
+*
+*  @param flag location service status. The default value returned `+[CLLocationManager locationServicesEnabled]` by  when enabling core location stubbing is YES
+*
+*  @return `YES` on success
+*/
+
+- (BOOL)coreLocationStubLocationServicesEnabled:(BOOL)flag;
+
+/**
+*  Tells all active CLLocationManager's delegates that the location manager
+*  has a new location data available.
+*
+*  @param locations an array of CLLocation objects containing the location data. This array should always contains at least one object representing the current location
+*
+*  @return `YES` on success
+*/
+- (BOOL)coreLocationNotifyLocationUpdate:(nonnull NSArray<CLLocation *>*)locations;
+
+/**
+*  Tells all active CLLocationManager's delegates that the location manager
+*  was unable to retrieve a location value.
+*
+*  @param error the error object containing the reason the location or heading could not be retrieved.
+*
+*  @return `YES` on success
+*/
+- (BOOL)coreLocationNotifyLocationError:(nonnull NSError *)error;
+
+#pragma mark - XCUITest UNUserNotificationCenter extensions
+
+/**
+*  Enable UNUserNotificationCenter stubbing
+*
+*  @param flag stubbing status
+*
+*  @return `YES` on success
+*/
+- (BOOL)notificationCenterStubEnabled:(BOOL)flag API_AVAILABLE(ios(10));
+
+/**
+*  Stub UNUserNotificationCenter authorizationStatus
+*
+*  @param status notification center authorization status. The default value returned by `UNNotificationSettings.authorizationStatus` when enabling notication center stubbing is UNAuthorizationStatusAuthorized
+*
+*  @return `YES` on success
+*/
+- (BOOL)notificationCenterStubAuthorizationStatus:(UNAuthorizationStatus)status API_AVAILABLE(ios(10));
 
 @end
 

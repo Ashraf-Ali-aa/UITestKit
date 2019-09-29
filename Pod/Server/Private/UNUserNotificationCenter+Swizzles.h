@@ -1,6 +1,6 @@
-// UITextField+DisableAutocomplete.m
+// UNUserNotificationCenter+Swizzles.h
 //
-// Copyright (C) 2016 Subito.it S.r.l (www.subito.it)
+// Copyright (C) 2018 Subito.it S.r.l (www.subito.it)
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -15,31 +15,23 @@
 // limitations under the License.
 
 #if DEBUG
-    #ifndef ENABLE_UITUNNEL 
+    #ifndef ENABLE_UITUNNEL
         #define ENABLE_UITUNNEL 1
+    #endif
+
+    #ifndef ENABLE_UITUNNEL_SWIZZLING
+        #define ENABLE_UITUNNEL_SWIZZLING 1
     #endif
 #endif
 
-#if ENABLE_UITUNNEL
+#if ENABLE_UITUNNEL && ENABLE_UITUNNEL_SWIZZLING
 
-#import "UITextField+DisableAutocomplete.h"
-#import "SBTSwizzleHelpers.h"
-#import <UIKit/UIKit.h>
+#import <UserNotifications/UNUserNotificationCenter.h>
 
-@implementation UITextField (DisableAutocomplete)
+@interface UNUserNotificationCenter (Swizzles)
 
-+ (void)disableAutocompleteOnce
-{
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        SBTTestTunnelInstanceSwizzle(self, @selector(autocorrectionType), @selector(swz_autocorrectionType));
-    });
-}
-
-- (UITextAutocorrectionType)swz_autocorrectionType
-{
-    return UITextAutocorrectionTypeNo;
-}
++ (void)loadSwizzlesWithAuthorizationStatus:(NSString *)autorizationStatus;
++ (void)removeSwizzles;
 
 @end
 

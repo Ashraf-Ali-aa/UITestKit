@@ -16,28 +16,15 @@ FOUNDATION_EXPORT const unsigned char UITestKitServerVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <UITestKitServer/PublicHeader.h>
 
-#ifndef SBTUITestTunnelServer_h
-#define SBTUITestTunnelServer_h
+#import <UITestKitServer/SBTUITestTunnelServer.h>
+#import <UITestKitServer/SBTAnyViewControllerPreviewing.h>
+#import <UITestKitServer/UIViewController+SBTUITestTunnel.h>
 
-#import "SBTUITestTunnelServer.h"
-#import "NSURLSession+HTTPBodyFix.h"
-#import "SBTProxyURLProtocol.h"
-#import "NSURLSessionConfiguration+SBTUITestTunnel.h"
-#import "SBTAnyViewControllerPreviewing.h"
-#import "SBTUITestTunnelServer/UIView+Extensions.h"
-#import "UITextField+DisableAutocomplete.h"
-#import "UIViewController+SBTUITestTunnel.h"
-#import "NSData+SHA1.h"
+#import <UITestKitCommon/NSURLRequest+SBTUITestTunnelMatch.h>
+#import <UITestKitCommon/SBTMonitoredNetworkRequest.h>
+#import <UITestKitCommon/SBTRequestMatch.h>
+#import <UITestKitCommon/SBTRewrite.h>
+#import <UITestKitCommon/SBTStubResponse.h>
+#import <UITestKitCommon/SBTSwizzleHelpers.h>
+#import <UITestKitCommon/SBTUITestTunnel.h>
 
-#import "NSData+gzip.h"
-#import "SBTSwizzleHelpers.h"
-#import "NSURLRequest+HTTPBodyFix.h"
-#import "SBTMonitoredNetworkRequest.h"
-#import "SBTUITestTunnel.h"
-#import "SBTStubResponse.h"
-#import "NSURLRequest+SBTUITestTunnelMatch.h"
-#import "SBTRewrite.h"
-#import "SBTRequestMatch.h"
-#import "NSString+SwiftDemangle.h"
-
-#endif

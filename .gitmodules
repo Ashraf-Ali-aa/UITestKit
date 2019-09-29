@@ -1,0 +1,3 @@
+[submodule "Carthage/Checkouts/GCDWebServer"]
+	path = Carthage/Checkouts/GCDWebServer
+	url = https://github.com/swisspol/GCDWebServer.git

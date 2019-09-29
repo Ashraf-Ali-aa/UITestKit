@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Example/SBTUITestTunnel.xcodeproj">
+      location = "group:SBTUITestTunnel.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:UITestKit.xcodeproj">
