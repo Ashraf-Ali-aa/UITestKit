@@ -26,6 +26,7 @@
 
 #if ENABLE_UITUNNEL
 
+#import <UITestKitClient/UITestKitClient-Swift.h>
 #import "SBTUITunneledApplication.h"
 #import "SBTUITestTunnelClient.h"
 #import "Private/XCTestCase+Swizzles.h"
@@ -47,15 +48,15 @@
     return self;
 }
 
-+ (void)load
-{
-#if ENABLE_UITUNNEL_SWIZZLING
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        [XCTestCase loadSwizzles];
-    });
-#endif
-}
+//+ (void)load
+//{
+//#if ENABLE_UITUNNEL_SWIZZLING
+//    static dispatch_once_t onceToken;
+//    dispatch_once(&onceToken, ^{
+//        [XCTestCase loadSwizzles];
+//    });
+//#endif
+//}
 
 - (void)launchTunnelWithOptions:(NSArray<NSString *> *)options startupBlock:(void (^)(void))startupBlock
 {

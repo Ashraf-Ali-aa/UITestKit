@@ -18,8 +18,7 @@ FOUNDATION_EXPORT const unsigned char SBTUITestTunnelClientVersionString[];
 
 #import <UITestKitClient/SBTUITestTunnelClient.h>
 #import <UITestKitClient/SBTUITestTunnelClientProtocol.h>
-#import <UITestKitClient/SBTUITunneledApplication.h>
-#import <UITestKitClient/XCTestCase+AppExtension.h>
+//#import <UITestKitClient/SBTUITunneledApplication.h>
 
 #import <UITestKitCommon/NSURLRequest+SBTUITestTunnelMatch.h>
 #import <UITestKitCommon/SBTMonitoredNetworkRequest.h>

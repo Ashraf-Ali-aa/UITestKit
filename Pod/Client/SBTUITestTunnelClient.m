@@ -22,12 +22,12 @@
 
 #if ENABLE_UITUNNEL
 
-#import <XCTest/XCTest.h>
 #import "SBTUITestTunnelClient.h"
-#import <UITestKitCommon/SBTUITestTunnel.h>
 #import <UITestKitCommon/NSURLRequest+SBTUITestTunnelMatch.h>
-#include <ifaddrs.h>
+#import <UITestKitCommon/SBTUITestTunnel.h>
+#import <XCTest/XCTest.h>
 #include <arpa/inet.h>
+#include <ifaddrs.h>
 
 const NSString *SBTUITunnelJsonMimeType = @"application/json";
 #define kSBTUITestTunnelErrorDomain @"com.subito.sbtuitesttunnel.error"

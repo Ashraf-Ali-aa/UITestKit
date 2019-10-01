@@ -48,18 +48,16 @@
 		C30D56BA23438CB30096B006 /* SBTRequestMatch.h in Headers */ = {isa = PBXBuildFile; fileRef = C30D56A723438CB30096B006 /* SBTRequestMatch.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C30D56BB23438CB30096B006 /* SBTStubResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = C30D56A823438CB30096B006 /* SBTStubResponse.m */; };
 		C30D56BC23438CB30096B006 /* SBTRewrite.h in Headers */ = {isa = PBXBuildFile; fileRef = C30D56A923438CB30096B006 /* SBTRewrite.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C30D56C723438CF60096B006 /* SBTUITunneledApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = C30D56BD23438CF60096B006 /* SBTUITunneledApplication.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C30D56C823438CF60096B006 /* XCTestCase+AppExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = C30D56BE23438CF60096B006 /* XCTestCase+AppExtension.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C30D56C923438CF60096B006 /* XCTestCase+Swizzles.h in Headers */ = {isa = PBXBuildFile; fileRef = C30D56C023438CF60096B006 /* XCTestCase+Swizzles.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		C30D56CA23438CF60096B006 /* XCTestCase+Swizzles.m in Sources */ = {isa = PBXBuildFile; fileRef = C30D56C123438CF60096B006 /* XCTestCase+Swizzles.m */; };
 		C30D56CB23438CF60096B006 /* SBTUITestTunnelClient.m in Sources */ = {isa = PBXBuildFile; fileRef = C30D56C223438CF60096B006 /* SBTUITestTunnelClient.m */; };
 		C30D56CC23438CF60096B006 /* SBTUITestTunnelClient.h in Headers */ = {isa = PBXBuildFile; fileRef = C30D56C323438CF60096B006 /* SBTUITestTunnelClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C30D56CD23438CF60096B006 /* SBTUITestTunnelClientProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = C30D56C423438CF60096B006 /* SBTUITestTunnelClientProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C30D56CE23438CF60096B006 /* XCTestCase+AppExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C30D56C523438CF60096B006 /* XCTestCase+AppExtension.m */; };
-		C30D56CF23438CF60096B006 /* SBTUITunneledApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = C30D56C623438CF60096B006 /* SBTUITunneledApplication.m */; };
 		C30D56D0234393150096B006 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE074EA4231D641F00A50F4E /* Foundation.framework */; };
 		C30D56D12343932D0096B006 /* UITestKitServer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE047570231E70D600108221 /* UITestKitServer.framework */; };
 		C30D56D22343935C0096B006 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE074EA4231D641F00A50F4E /* Foundation.framework */; };
+		C30D56D423439A470096B006 /* SBTUITestTunnelClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30D56D323439A470096B006 /* SBTUITestTunnelClientProtocol.swift */; };
+		C332B8752346066C00870971 /* SBTUITunneledApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = C332B8742346066C00870971 /* SBTUITunneledApplication.swift */; };
+		C332B8BF23463DAE00870971 /* XCTestCase+AppExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C332B8BE23463DAE00870971 /* XCTestCase+AppExtension.swift */; };
+		C332B8C12346412400870971 /* XCTestCase+Swizzles.swift in Sources */ = {isa = PBXBuildFile; fileRef = C332B8C02346412400870971 /* XCTestCase+Swizzles.swift */; };
 		C3C4895C23424DF500F288C7 /* UITestKitCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = C3C4894E23424DF500F288C7 /* UITestKitCommon.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C3C4897623424EAA00F288C7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE074EA4231D641F00A50F4E /* Foundation.framework */; };
 		C3C4897723433D7A00F288C7 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE074E70231D57CE00A50F4E /* XCTest.framework */; };
@@ -122,15 +120,13 @@
 		C30D56A723438CB30096B006 /* SBTRequestMatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBTRequestMatch.h; sourceTree = "<group>"; };
 		C30D56A823438CB30096B006 /* SBTStubResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBTStubResponse.m; sourceTree = "<group>"; };
 		C30D56A923438CB30096B006 /* SBTRewrite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBTRewrite.h; sourceTree = "<group>"; };
-		C30D56BD23438CF60096B006 /* SBTUITunneledApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBTUITunneledApplication.h; sourceTree = "<group>"; };
-		C30D56BE23438CF60096B006 /* XCTestCase+AppExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "XCTestCase+AppExtension.h"; sourceTree = "<group>"; };
-		C30D56C023438CF60096B006 /* XCTestCase+Swizzles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "XCTestCase+Swizzles.h"; sourceTree = "<group>"; };
-		C30D56C123438CF60096B006 /* XCTestCase+Swizzles.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XCTestCase+Swizzles.m"; sourceTree = "<group>"; };
 		C30D56C223438CF60096B006 /* SBTUITestTunnelClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBTUITestTunnelClient.m; sourceTree = "<group>"; };
 		C30D56C323438CF60096B006 /* SBTUITestTunnelClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBTUITestTunnelClient.h; sourceTree = "<group>"; };
 		C30D56C423438CF60096B006 /* SBTUITestTunnelClientProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBTUITestTunnelClientProtocol.h; sourceTree = "<group>"; };
-		C30D56C523438CF60096B006 /* XCTestCase+AppExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XCTestCase+AppExtension.m"; sourceTree = "<group>"; };
-		C30D56C623438CF60096B006 /* SBTUITunneledApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBTUITunneledApplication.m; sourceTree = "<group>"; };
+		C30D56D323439A470096B006 /* SBTUITestTunnelClientProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBTUITestTunnelClientProtocol.swift; sourceTree = "<group>"; };
+		C332B8742346066C00870971 /* SBTUITunneledApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBTUITunneledApplication.swift; sourceTree = "<group>"; };
+		C332B8BE23463DAE00870971 /* XCTestCase+AppExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+AppExtension.swift"; sourceTree = "<group>"; };
+		C332B8C02346412400870971 /* XCTestCase+Swizzles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Swizzles.swift"; sourceTree = "<group>"; };
 		C3C4894C23424DF500F288C7 /* UITestKitCommon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UITestKitCommon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3C4894E23424DF500F288C7 /* UITestKitCommon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UITestKitCommon.h; sourceTree = "<group>"; };
 		C3C4894F23424DF500F288C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -218,8 +214,7 @@
 		C30D56BF23438CF60096B006 /* Private */ = {
 			isa = PBXGroup;
 			children = (
-				C30D56C023438CF60096B006 /* XCTestCase+Swizzles.h */,
-				C30D56C123438CF60096B006 /* XCTestCase+Swizzles.m */,
+				C332B8C02346412400870971 /* XCTestCase+Swizzles.swift */,
 			);
 			path = Private;
 			sourceTree = "<group>";
@@ -282,10 +277,9 @@
 				C30D56C323438CF60096B006 /* SBTUITestTunnelClient.h */,
 				C30D56C223438CF60096B006 /* SBTUITestTunnelClient.m */,
 				C30D56C423438CF60096B006 /* SBTUITestTunnelClientProtocol.h */,
-				C30D56BD23438CF60096B006 /* SBTUITunneledApplication.h */,
-				C30D56C623438CF60096B006 /* SBTUITunneledApplication.m */,
-				C30D56BE23438CF60096B006 /* XCTestCase+AppExtension.h */,
-				C30D56C523438CF60096B006 /* XCTestCase+AppExtension.m */,
+				C30D56D323439A470096B006 /* SBTUITestTunnelClientProtocol.swift */,
+				C332B8742346066C00870971 /* SBTUITunneledApplication.swift */,
+				C332B8BE23463DAE00870971 /* XCTestCase+AppExtension.swift */,
 			);
 			name = Client;
 			path = Pod/Client;
@@ -394,10 +388,7 @@
 			files = (
 				CE074ED8231D698200A50F4E /* UITestKitClient.h in Headers */,
 				C30D56CC23438CF60096B006 /* SBTUITestTunnelClient.h in Headers */,
-				C30D56C923438CF60096B006 /* XCTestCase+Swizzles.h in Headers */,
 				C30D56CD23438CF60096B006 /* SBTUITestTunnelClientProtocol.h in Headers */,
-				C30D56C823438CF60096B006 /* XCTestCase+AppExtension.h in Headers */,
-				C30D56C723438CF60096B006 /* SBTUITunneledApplication.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -477,6 +468,7 @@
 					};
 					CE074ED3231D698200A50F4E = {
 						CreatedOnToolsVersion = 10.2.1;
+						LastSwiftMigration = 1030;
 					};
 				};
 			};
@@ -563,10 +555,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C30D56CE23438CF60096B006 /* XCTestCase+AppExtension.m in Sources */,
+				C332B8BF23463DAE00870971 /* XCTestCase+AppExtension.swift in Sources */,
+				C332B8C12346412400870971 /* XCTestCase+Swizzles.swift in Sources */,
+				C332B8752346066C00870971 /* SBTUITunneledApplication.swift in Sources */,
 				C30D56CB23438CF60096B006 /* SBTUITestTunnelClient.m in Sources */,
-				C30D56CA23438CF60096B006 /* XCTestCase+Swizzles.m in Sources */,
-				C30D56CF23438CF60096B006 /* SBTUITunneledApplication.m in Sources */,
+				C30D56D423439A470096B006 /* SBTUITestTunnelClientProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -749,6 +742,7 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(PLATFORM_DIR)/Developer/Library/Frameworks";
@@ -814,6 +808,7 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(PLATFORM_DIR)/Developer/Library/Frameworks";
@@ -841,6 +836,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -862,6 +858,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = qonto.eu.SBTUITestTunnelClient;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -871,6 +868,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
