@@ -68,7 +68,7 @@ typedef enum: NSUInteger {
  *  SBTUITunneledApplicationLaunchOptionResetFilesystem: delete app's filesystem sandbox
  *  SBTUITunneledApplicationLaunchOptionDisableUITextFieldAutocomplete disables UITextField's autocomplete functionality which can lead to unexpected results when typing text.
  */
-@interface SBTUITestTunnelClient : NSObject <SBTUITestTunnelClientProtocol>
+@interface SBTUITestTunnelClient : NSObject
 
 /**
  *  The object that acts as the delegate of the tunneled application.
@@ -84,6 +84,66 @@ typedef enum: NSUInteger {
  */
 - (nonnull instancetype)initWithApplication:(nonnull XCUIApplication *)application;
 
+- (void)launchTunnelWithStartupBlock:(void (^_Nullable)(void))startupBlock;
++ (void)setConnectionTimeout:(NSTimeInterval)timeout;
+- (void)shutDownWithError:(nullable NSError *)error;
+
+- (void)waitForAppReady;
+- (NSString *_Nullable)stubRequestsMatching:(SBTRequestMatch *_Nonnull)match response:(SBTStubResponse *_Nonnull)response removeAfterIterations:(NSUInteger)iterations;
+
+- (BOOL)stubRequestsRemoveAll;
+//- (NSString *_Nonnull)base64SerializeObject:(id _Nonnull )obj;
+- (NSString *_Nullable)base64SerializeObject:(id _Nullable )obj;
+
+- (NSString *_Nullable)sendSynchronousRequestWithPath:(NSString *_Nonnull)path params:(NSDictionary<NSString *, NSString *> *_Nullable)params assertOnError:(BOOL)assertOnError;
+
+- (NSString *_Nullable)sendSynchronousRequestWithPath:(NSString *_Nonnull)path params:(NSDictionary<NSString *, NSString *> *_Nullable)params;
+
+- (void)waitForMonitoredRequestsMatching:(SBTRequestMatch *_Nonnull)match timeout:(NSTimeInterval)timeout completionBlock:(void (^_Nonnull)(BOOL timeout))completionBlock;
+
+- (void)waitForMonitoredRequestsMatching:(SBTRequestMatch *_Nullable)match timeout:(NSTimeInterval)timeout iterations:(NSUInteger)iterations completionBlock:(void (^_Nonnull)(BOOL timeout))completionBlock;
+
+- (BOOL)uploadItemAtPath:(NSString *_Nonnull)srcPath toPath:(NSString *_Nullable)destPath relativeTo:(NSSearchPathDirectory)baseFolder;
+- (NSArray<NSData *> *_Nonnull)downloadItemsFromPath:(NSString *_Nullable)path relativeTo:(NSSearchPathDirectory)baseFolder;
+
+- (NSArray<SBTMonitoredNetworkRequest *> *_Nullable)monitoredRequestsPeekAll;
+
+- (BOOL)setUserInterfaceAnimationsEnabled:(BOOL)enabled;
+- (BOOL)setUserInterfaceAnimationSpeed:(NSInteger)speed;
+- (NSInteger)userInterfaceAnimationSpeed;
+- (BOOL)userInterfaceAnimationsEnabled;
+- (BOOL)scrollTableViewWithIdentifier:(nonnull NSString *)identifier toRow:(NSInteger)row animated:(BOOL)flag;
+- (BOOL)scrollCollectionViewWithIdentifier:(nonnull NSString *)identifier toRow:(NSInteger)row animated:(BOOL)flag;
+- (BOOL)scrollScrollViewWithIdentifier:(nonnull NSString *)identifier toElementWitIdentifier:(nonnull NSString *)targetIdentifier animated:(BOOL)flag;
+- (BOOL)forcePressViewWithIdentifier:(nonnull NSString *)identifier;
+- (BOOL)coreLocationStubEnabled:(BOOL)flag;
+- (BOOL)coreLocationStubAuthorizationStatus:(CLAuthorizationStatus)status;
+- (BOOL)coreLocationStubLocationServicesEnabled:(BOOL)flag;
+- (BOOL)coreLocationNotifyLocationUpdate:(nonnull NSArray<CLLocation *>*)locations;
+- (BOOL)coreLocationNotifyLocationError:(nonnull NSError *)error;
+- (BOOL)notificationCenterStubEnabled:(BOOL)flag;
+- (BOOL)notificationCenterStubAuthorizationStatus:(UNAuthorizationStatus)status;
 @end
 
+@interface SBTUITestTunnelClient() <NSNetServiceDelegate>
+{
+    BOOL _userInterfaceAnimationsEnabled;
+    NSInteger _userInterfaceAnimationSpeed;
+}
+
+@property (nonatomic, weak) XCUIApplication * _Nullable application;
+@property (nonatomic, assign) NSInteger connectionPort;
+@property (nonatomic, assign) BOOL connected;
+@property (nonatomic, assign) NSTimeInterval connectionTimeout;
+@property (nonatomic, strong) NSMutableArray * _Nullable stubOnceIds;
+@property (nonatomic, strong) NSString * _Nullable bonjourName;
+@property (nonatomic, strong) NSNetService * _Nullable bonjourBrowser;
+@property (nonatomic, strong) void (^ _Nullable startupBlock)(void);
+@property (nonatomic, copy) NSArray<NSString *> * _Nullable initialLaunchArguments;
+@property (nonatomic, copy) NSDictionary<NSString *, NSString *> * _Nullable initialLaunchEnvironment;
+@property (nonatomic, strong) NSString *_Nullable(^ _Nonnull connectionlessBlock)(NSString *_Nonnull, NSDictionary<NSString *, NSString *> *_Nonnull);
+
+@property (nonatomic, assign) NSTimeInterval * _Nonnull SBTUITunneledApplicationDefaultTimeout;
+
+@end
 #endif

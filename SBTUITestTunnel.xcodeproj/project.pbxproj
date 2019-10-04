@@ -241,8 +241,8 @@
 		7E9AB19D22AEE9DB001205E9 /* SBTUITestTunnel_TestsNoSwizzling */ = {
 			isa = PBXGroup;
 			children = (
-				7E9AB1A622AEEA16001205E9 /* NoSwizzlingTests.swift */,
 				7E9AB1A022AEE9DB001205E9 /* Info.plist */,
+				7E9AB1A622AEEA16001205E9 /* NoSwizzlingTests.swift */,
 			);
 			name = SBTUITestTunnel_TestsNoSwizzling;
 			path = Example/SBTUITestTunnel_TestsNoSwizzling;

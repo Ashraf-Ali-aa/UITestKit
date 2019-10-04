@@ -154,12 +154,12 @@ extension SBTUITunneledApplication {
 
     @discardableResult
     public func monitoredRequestsPeekAll() -> [SBTMonitoredNetworkRequest] {
-        return client.monitoredRequestsPeekAll()
+        return client.monitoredRequestsPeekAll()!
     }
 
     @discardableResult
     public func monitoredRequestsFlushAll() -> [SBTMonitoredNetworkRequest] {
-        return client.monitoredRequestsFlushAll()
+        return client.monitoredRequestsFlushAll()!
     }
 
     @discardableResult

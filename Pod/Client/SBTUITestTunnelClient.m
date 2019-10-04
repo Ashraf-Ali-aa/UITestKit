@@ -32,25 +32,6 @@
 const NSString *SBTUITunnelJsonMimeType = @"application/json";
 #define kSBTUITestTunnelErrorDomain @"com.subito.sbtuitesttunnel.error"
 
-@interface SBTUITestTunnelClient() <NSNetServiceDelegate>
-{
-    BOOL _userInterfaceAnimationsEnabled;
-    NSInteger _userInterfaceAnimationSpeed;
-}
-
-@property (nonatomic, weak) XCUIApplication *application;
-@property (nonatomic, assign) NSInteger connectionPort;
-@property (nonatomic, assign) BOOL connected;
-@property (nonatomic, assign) NSTimeInterval connectionTimeout;
-@property (nonatomic, strong) NSMutableArray *stubOnceIds;
-@property (nonatomic, strong) NSString *bonjourName;
-@property (nonatomic, strong) NSNetService *bonjourBrowser;
-@property (nonatomic, strong) void (^startupBlock)(void);
-@property (nonatomic, copy) NSArray<NSString *> *initialLaunchArguments;
-@property (nonatomic, copy) NSDictionary<NSString *, NSString *> *initialLaunchEnvironment;
-@property (nonatomic, strong) NSString *(^connectionlessBlock)(NSString *, NSDictionary<NSString *, NSString *> *);
-
-@end
 
 @implementation SBTUITestTunnelClient
 
@@ -131,17 +112,6 @@ static NSTimeInterval SBTUITunneledApplicationDefaultTimeout = 30.0;
     [self waitForAppReady];
 }
 
-- (void)launchConnectionless:(NSString * (^)(NSString *, NSDictionary<NSString *, NSString *> *))command
-{
-    self.connectionlessBlock = command;
-    [self shutDownWithError:nil];
-}
-
-- (void)terminate
-{
-    [self shutDownWithError:nil];
-}
-
 - (void)waitForAppReady
 {
     const int timeout = self.connectionTimeout;
@@ -207,11 +177,6 @@ static NSTimeInterval SBTUITunneledApplicationDefaultTimeout = 30.0;
 
 #pragma mark - Quit Command
 
-- (void)quit
-{
-    [self sendSynchronousRequestWithPath:SBTUITunneledApplicationCommandQuit params:nil assertOnError:NO];
-}
-
 #pragma mark - Ready Command
 
 - (BOOL)isAppCruising
@@ -221,11 +186,6 @@ static NSTimeInterval SBTUITunneledApplicationDefaultTimeout = 30.0;
 
 #pragma mark - Stub Commands
 
-- (NSString *)stubRequestsMatching:(SBTRequestMatch *)match response:(SBTStubResponse *)response
-{
-    return [self stubRequestsMatching:match response:response removeAfterIterations:0];
-}
-
 #pragma mark - Stub And Remove Commands
 
 - (NSString *)stubRequestsMatching:(SBTRequestMatch *)match response:(SBTStubResponse *)response removeAfterIterations:(NSUInteger)iterations
@@ -234,29 +194,13 @@ static NSTimeInterval SBTUITunneledApplicationDefaultTimeout = 30.0;
                                                      SBTUITunnelStubResponseKey: [self base64SerializeObject:response],
                                                      SBTUITunnelStubIterationsKey: [@(iterations) stringValue]
                                                      };
-    
+
     return [self sendSynchronousRequestWithPath:SBTUITunneledApplicationCommandStubAndRemoveMatching params:params];
 }
 
 #pragma mark - Stub Remove Commands
 
-- (BOOL)stubRequestsRemoveWithId:(NSString *)stubId
-{
-    NSDictionary<NSString *, NSString *> *params = @{SBTUITunnelStubMatchRuleKey:[self base64SerializeObject:stubId]};
-    
-    return [[self sendSynchronousRequestWithPath:SBTUITunneledApplicationCommandStubRequestsRemove params:params] boolValue];
-}
-
-- (BOOL)stubRequestsRemoveWithIds:(NSArray<NSString *> *)stubIds
-{
-    BOOL ret = YES;
-    for (NSString *stubId in stubIds) {
-        ret &= [self stubRequestsRemoveWithId:stubId];
-    }
-    
-    return ret;
-}
-
+//
 - (BOOL)stubRequestsRemoveAll
 {
     return [[self sendSynchronousRequestWithPath:SBTUITunneledApplicationCommandStubRequestsRemoveAll params:nil] boolValue];
@@ -264,100 +208,22 @@ static NSTimeInterval SBTUITunneledApplicationDefaultTimeout = 30.0;
 
 #pragma mark - Rewrite Commands
 
-- (NSString *)rewriteRequestsMatching:(SBTRequestMatch *)match rewrite:(SBTRewrite *)rewrite
-{
-    return [self rewriteRequestsMatching:match rewrite:rewrite removeAfterIterations:0];
-}
-
-#pragma mark - Rewrite And Remove Commands
-
-- (NSString *)rewriteRequestsMatching:(SBTRequestMatch *)match rewrite:(SBTRewrite *)rewrite removeAfterIterations:(NSUInteger)iterations
-{
-    NSDictionary<NSString *, NSString *> *params = @{SBTUITunnelRewriteMatchRuleKey: [self base64SerializeObject:match],
-                                                     SBTUITunnelRewriteKey: [self base64SerializeObject:rewrite],
-                                                     SBTUITunnelRewriteIterationsKey: [@(iterations) stringValue]
-                                                     };
-    
-    return [self sendSynchronousRequestWithPath:SBTUITunneledApplicationCommandRewriteAndRemoveMatching params:params];
-}
 
 #pragma mark - Rewrite Remove Commands
 
-- (BOOL)rewriteRequestsRemoveWithId:(NSString *)rewriteId
-{
-    NSDictionary<NSString *, NSString *> *params = @{SBTUITunnelRewriteMatchRuleKey:[self base64SerializeObject:rewriteId]};
-    
-    return [[self sendSynchronousRequestWithPath:SBTUITunneledApplicationCommandRewriteRequestsRemove params:params] boolValue];
-}
-
-- (BOOL)rewriteRequestsRemoveWithIds:(NSArray<NSString *> *)rewriteIds
-{
-    BOOL ret = YES;
-    for (NSString *rewriteId in rewriteIds) {
-        ret &= [self rewriteRequestsRemoveWithId:rewriteId];
-    }
-    
-    return ret;
-}
-
-- (BOOL)rewriteRequestsRemoveAll
-{
-    return [[self sendSynchronousRequestWithPath:SBTUITunneledApplicationCommandRewriteRequestsRemoveAll params:nil] boolValue];
-}
 
 #pragma mark - Monitor Requests Commands
-
-- (NSString *)monitorRequestsMatching:(SBTRequestMatch *)match
-{
-    NSDictionary<NSString *, NSString *> *params = @{SBTUITunnelProxyQueryRuleKey: [self base64SerializeObject:match]};
-    
-    return [self sendSynchronousRequestWithPath:SBTUITunneledApplicationCommandMonitorMatching params:params];
-}
 
 - (NSArray<SBTMonitoredNetworkRequest *> *)monitoredRequestsPeekAll
 {
     NSString *objectBase64 = [self sendSynchronousRequestWithPath:SBTUITunneledApplicationCommandMonitorPeek params:nil];
     if (objectBase64) {
         NSData *objectData = [[NSData alloc] initWithBase64EncodedString:objectBase64 options:0];
-        
+
         return [NSKeyedUnarchiver unarchiveObjectWithData:objectData] ?: @[];
     }
-    
+
     return nil;
-}
-
-- (NSArray<SBTMonitoredNetworkRequest *> *)monitoredRequestsFlushAll
-{
-    NSString *objectBase64 = [self sendSynchronousRequestWithPath:SBTUITunneledApplicationCommandMonitorFlush params:nil];
-    if (objectBase64) {
-        NSData *objectData = [[NSData alloc] initWithBase64EncodedString:objectBase64 options:0];
-        
-        return [NSKeyedUnarchiver unarchiveObjectWithData:objectData] ?: @[];
-    }
-    
-    return nil;
-}
-
-- (BOOL)monitorRequestRemoveWithId:(NSString *)reqId
-{
-    NSDictionary<NSString *, NSString *> *params = @{SBTUITunnelProxyQueryRuleKey:[self base64SerializeObject:reqId]};
-    
-    return [[self sendSynchronousRequestWithPath:SBTUITunneledApplicationCommandMonitorRemove params:params] boolValue];
-}
-
-- (BOOL)monitorRequestRemoveWithIds:(NSArray<NSString *> *)reqIds
-{
-    BOOL ret = YES;
-    for (NSString *reqId in reqIds) {
-        ret &= [self monitorRequestRemoveWithId:reqId];
-    }
-    
-    return ret;
-}
-
-- (BOOL)monitorRequestRemoveAll
-{
-    return [[self sendSynchronousRequestWithPath:SBTUITunneledApplicationCommandMonitorRemoveAll params:nil] boolValue];
 }
 
 #pragma mark - Asynchronously Wait for Requests Commands
@@ -411,201 +277,32 @@ static NSTimeInterval SBTUITunneledApplicationDefaultTimeout = 30.0;
 
 #pragma mark - Synchronously Wait for Requests Commands
 
-- (BOOL)waitForMonitoredRequestsMatching:(SBTRequestMatch *)match timeout:(NSTimeInterval)timeout;
-{
-    return [self waitForMonitoredRequestsMatching:match timeout:timeout iterations:1];
-}
-
-- (BOOL)waitForMonitoredRequestsMatching:(SBTRequestMatch *)match timeout:(NSTimeInterval)timeout iterations:(NSUInteger)iterations;
-{
-    __block BOOL result = NO;
-    __block BOOL done = NO;
-    
-    NSLock *doneLock = [[NSLock alloc] init];
-    
-    [self waitForMonitoredRequestsMatching:match timeout:timeout iterations:iterations completionBlock:^(BOOL didTimeout) {
-        result = !didTimeout;
-        
-        [doneLock lock];
-        done = YES;
-        [doneLock unlock];
-    }];
-    
-    for (;;) {
-        [NSRunLoop.currentRunLoop runUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.5]];
-        
-        [doneLock lock];
-        if (done) {
-            [doneLock unlock];
-            break;
-        }
-        [doneLock unlock];
-    }
-    
-    return result;
-}
-
 #pragma mark - Throttle Requests Commands
 
-- (NSString *)throttleRequestsMatching:(SBTRequestMatch *)match responseTime:(NSTimeInterval)responseTime;
-{
-    NSDictionary<NSString *, NSString *> *params = @{SBTUITunnelProxyQueryRuleKey: [self base64SerializeObject:match], SBTUITunnelProxyQueryResponseTimeKey: [@(responseTime) stringValue]};
-    
-    return [self sendSynchronousRequestWithPath:SBTUITunneledApplicationCommandThrottleMatching params:params];
-}
-
-- (BOOL)throttleRequestRemoveWithId:(NSString *)reqId;
-{
-    NSDictionary<NSString *, NSString *> *params = @{SBTUITunnelProxyQueryRuleKey:[self base64SerializeObject:reqId]};
-    
-    return [[self sendSynchronousRequestWithPath:SBTUITunneledApplicationCommandThrottleRemove params:params] boolValue];
-}
-
-- (BOOL)throttleRequestRemoveWithIds:(NSArray<NSString *> *)reqIds;
-{
-    BOOL ret = YES;
-    for (NSString *reqId in reqIds) {
-        ret &= [self throttleRequestRemoveWithId:reqId];
-    }
-    
-    return ret;
-}
-
-- (BOOL)throttleRequestRemoveAll
-{
-    return [[self sendSynchronousRequestWithPath:SBTUITunneledApplicationCommandThrottleRemoveAll params:nil] boolValue];
-}
 
 #pragma mark - Cookie Block Requests Commands
 
-- (NSString *)blockCookiesInRequestsMatching:(SBTRequestMatch *)match
-{
-    return [self blockCookiesInRequestsMatching:match iterations:0];
-}
-
-- (NSString *)blockCookiesInRequestsMatching:(SBTRequestMatch *)match iterations:(NSUInteger)iterations
-{
-    NSDictionary<NSString *, NSString *> *params = @{SBTUITunnelCookieBlockMatchRuleKey: [self base64SerializeObject:match],
-                                                     SBTUITunnelCookieBlockQueryIterationsKey: [@(iterations) stringValue]};
-    
-    return [self sendSynchronousRequestWithPath:SBTUITunneledApplicationCommandCookieBlockAndRemoveMatching params:params];
-}
-
-- (BOOL)blockCookiesRequestsRemoveWithId:(NSString *)reqId
-{
-    NSDictionary<NSString *, NSString *> *params = @{SBTUITunnelCookieBlockMatchRuleKey:[self base64SerializeObject:reqId]};
-    
-    return [[self sendSynchronousRequestWithPath:SBTUITunneledApplicationCommandCookieBlockRemove params:params] boolValue];
-}
-
-- (BOOL)blockCookiesRequestsRemoveWithIds:(NSArray<NSString *> *)reqIds
-{
-    BOOL ret = YES;
-    for (NSString *reqId in reqIds) {
-        ret &= [self blockCookiesRequestsRemoveWithId:reqId];
-    }
-    
-    return ret;
-}
-
-- (BOOL)blockCookiesRequestsRemoveAll
-{
-    return [[self sendSynchronousRequestWithPath:SBTUITunneledApplicationCommandCookieBlockRemoveAll params:nil] boolValue];
-}
 
 #pragma mark - NSUserDefaults Commands
 
-- (BOOL)userDefaultsSetObject:(id)object forKey:(NSString *)key
-{
-    return [self userDefaultsSetObject:object forKey:key suiteName:@""];
-}
-
-- (BOOL)userDefaultsRemoveObjectForKey:(NSString *)key
-{
-    return [self userDefaultsRemoveObjectForKey:key suiteName:@""];
-}
-
-- (id)userDefaultsObjectForKey:(NSString *)key
-{
-    return [self userDefaultsObjectForKey:key suiteName:@""];
-}
-
-- (BOOL)userDefaultsReset
-{
-    return [self userDefaultsResetSuiteName:@""];
-}
-
-- (BOOL)userDefaultsSetObject:(id)object forKey:(NSString *)key suiteName:(NSString *)suiteName;
-{
-    NSDictionary<NSString *, NSString *> *params = @{SBTUITunnelObjectKeyKey: key,
-                                                     SBTUITunnelObjectKey: [self base64SerializeObject:object],
-                                                     SBTUITunnelUserDefaultSuiteNameKey: suiteName};
-    
-    return [[self sendSynchronousRequestWithPath:SBTUITunneledApplicationCommandNSUserDefaultsSetObject params:params] boolValue];
-}
-
-- (BOOL)userDefaultsRemoveObjectForKey:(NSString *)key suiteName:(NSString *)suiteName;
-{
-    NSDictionary<NSString *, NSString *> *params = @{SBTUITunnelObjectKeyKey: key,
-                                                     SBTUITunnelUserDefaultSuiteNameKey: suiteName};
-    
-    return [[self sendSynchronousRequestWithPath:SBTUITunneledApplicationCommandNSUserDefaultsRemoveObject params:params] boolValue];
-}
-
-- (id)userDefaultsObjectForKey:(NSString *)key suiteName:(NSString *)suiteName;
-{
-    NSDictionary<NSString *, NSString *> *params = @{SBTUITunnelObjectKeyKey: key,
-                                                     SBTUITunnelUserDefaultSuiteNameKey: suiteName};
-    
-    NSString *objectBase64 = [self sendSynchronousRequestWithPath:SBTUITunneledApplicationCommandNSUserDefaultsObject params:params];
-    
-    if (objectBase64) {
-        NSData *objectData = [[NSData alloc] initWithBase64EncodedString:objectBase64 options:0];
-        
-        return [NSKeyedUnarchiver unarchiveObjectWithData:objectData];
-    }
-    
-    return nil;
-}
-
-- (BOOL)userDefaultsResetSuiteName:(NSString *)suiteName;
-{
-    NSDictionary<NSString *, NSString *> *params = @{SBTUITunnelUserDefaultSuiteNameKey: suiteName};
-    
-    return [[self sendSynchronousRequestWithPath:SBTUITunneledApplicationCommandNSUserDefaultsReset params:params] boolValue];
-}
-
 #pragma mark - NSBundle
-
-- (nullable NSDictionary<NSString *, id> *)mainBundleInfoDictionary;
-{
-    NSString *objectBase64 = [self sendSynchronousRequestWithPath:SBTUITunneledApplicationCommandMainBundleInfoDictionary params:nil];
-    
-    if (objectBase64) {
-        NSData *objectData = [[NSData alloc] initWithBase64EncodedString:objectBase64 options:0];
-        
-        return [NSKeyedUnarchiver unarchiveObjectWithData:objectData];
-    }
-    
-    return nil;
-}
 
 #pragma mark - Copy Commands
 
 - (BOOL)uploadItemAtPath:(NSString *)srcPath toPath:(NSString *)destPath relativeTo:(NSSearchPathDirectory)baseFolder
 {
     NSAssert(![srcPath hasPrefix:@"file:"], @"Call this methon passing srcPath using [NSURL path] not [NSURL absoluteString]!");
-    
+
     NSData *data = [NSData dataWithContentsOfURL:[NSURL fileURLWithPath:srcPath]];
-    
+
     if (!data) {
         return NO;
     }
-    
+
     NSDictionary<NSString *, NSString *> *params = @{SBTUITunnelUploadDataKey: [self base64SerializeData:data],
                                                      SBTUITunnelUploadDestPathKey: [self base64SerializeObject:destPath ?: @""],
                                                      SBTUITunnelUploadBasePathKey: [@(baseFolder) stringValue]};
-    
+
     return [[self sendSynchronousRequestWithPath:SBTUITunneledApplicationCommandUploadData params:params] boolValue];
 }
 
@@ -613,35 +310,19 @@ static NSTimeInterval SBTUITunneledApplicationDefaultTimeout = 30.0;
 {
     NSDictionary<NSString *, NSString *> *params = @{SBTUITunnelDownloadPathKey: [self base64SerializeObject:path ?: @""],
                                                      SBTUITunnelDownloadBasePathKey: [@(baseFolder) stringValue]};
-    
+
     NSString *itemsBase64 = [self sendSynchronousRequestWithPath:SBTUITunneledApplicationCommandDownloadData params:params];
-    
+
     if (itemsBase64) {
         NSData *itemsData = [[NSData alloc] initWithBase64EncodedString:itemsBase64 options:0];
-        
+
         return [NSKeyedUnarchiver unarchiveObjectWithData:itemsData];
     }
-    
+
     return nil;
 }
 
 #pragma mark - Custom Commands
-
-- (id)performCustomCommandNamed:(NSString *)commandName object:(id)object
-{
-    NSDictionary<NSString *, NSString *> *params = @{SBTUITunnelCustomCommandKey: commandName,
-                                                     SBTUITunnelObjectKey: [self base64SerializeObject:object]};
-    
-    NSString *objectBase64 = [self sendSynchronousRequestWithPath:SBTUITunneledApplicationCommandCustom params:params];
-    
-    if (objectBase64) {
-        NSData *objectData = [[NSData alloc] initWithBase64EncodedString:objectBase64 options:0];
-        
-        return [NSKeyedUnarchiver unarchiveObjectWithData:objectData];
-    }
-    
-    return nil;
-}
 
 #pragma mark - Other Commands
 

@@ -80,7 +80,7 @@
          *
          *  @return `YES` on success
          */
-        @objc func stubRequests(matching match: SBTRequestMatch, response: SBTStubResponse, removeAfterIterations iterations: Int) -> String?
+        @objc func stubRequests(matching match: SBTRequestMatch, response: SBTStubResponse, removeAfterIterations iterations: UInt) -> String?
 
         // MARK: - Stub Remove Commands
 

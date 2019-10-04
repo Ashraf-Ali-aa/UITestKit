@@ -58,6 +58,8 @@
 		C332B8752346066C00870971 /* SBTUITunneledApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = C332B8742346066C00870971 /* SBTUITunneledApplication.swift */; };
 		C332B8BF23463DAE00870971 /* XCTestCase+AppExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C332B8BE23463DAE00870971 /* XCTestCase+AppExtension.swift */; };
 		C332B8C12346412400870971 /* XCTestCase+Swizzles.swift in Sources */ = {isa = PBXBuildFile; fileRef = C332B8C02346412400870971 /* XCTestCase+Swizzles.swift */; };
+		C332B8C72347A66F00870971 /* SBTUITestTunnelClient+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C332B8C62347A66F00870971 /* SBTUITestTunnelClient+Extensions.swift */; };
+		C332B8C92348D56C00870971 /* SBTUITestTunnelErrorEums.swift in Sources */ = {isa = PBXBuildFile; fileRef = C332B8C82348D56C00870971 /* SBTUITestTunnelErrorEums.swift */; };
 		C3C4895C23424DF500F288C7 /* UITestKitCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = C3C4894E23424DF500F288C7 /* UITestKitCommon.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C3C4897623424EAA00F288C7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE074EA4231D641F00A50F4E /* Foundation.framework */; };
 		C3C4897723433D7A00F288C7 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE074E70231D57CE00A50F4E /* XCTest.framework */; };
@@ -127,6 +129,8 @@
 		C332B8742346066C00870971 /* SBTUITunneledApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBTUITunneledApplication.swift; sourceTree = "<group>"; };
 		C332B8BE23463DAE00870971 /* XCTestCase+AppExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+AppExtension.swift"; sourceTree = "<group>"; };
 		C332B8C02346412400870971 /* XCTestCase+Swizzles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Swizzles.swift"; sourceTree = "<group>"; };
+		C332B8C62347A66F00870971 /* SBTUITestTunnelClient+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SBTUITestTunnelClient+Extensions.swift"; sourceTree = "<group>"; };
+		C332B8C82348D56C00870971 /* SBTUITestTunnelErrorEums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBTUITestTunnelErrorEums.swift; sourceTree = "<group>"; };
 		C3C4894C23424DF500F288C7 /* UITestKitCommon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UITestKitCommon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3C4894E23424DF500F288C7 /* UITestKitCommon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UITestKitCommon.h; sourceTree = "<group>"; };
 		C3C4894F23424DF500F288C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -276,10 +280,12 @@
 				C30D56BF23438CF60096B006 /* Private */,
 				C30D56C323438CF60096B006 /* SBTUITestTunnelClient.h */,
 				C30D56C223438CF60096B006 /* SBTUITestTunnelClient.m */,
+				C332B8C62347A66F00870971 /* SBTUITestTunnelClient+Extensions.swift */,
 				C30D56C423438CF60096B006 /* SBTUITestTunnelClientProtocol.h */,
 				C30D56D323439A470096B006 /* SBTUITestTunnelClientProtocol.swift */,
 				C332B8742346066C00870971 /* SBTUITunneledApplication.swift */,
 				C332B8BE23463DAE00870971 /* XCTestCase+AppExtension.swift */,
+				C332B8C82348D56C00870971 /* SBTUITestTunnelErrorEums.swift */,
 			);
 			name = Client;
 			path = Pod/Client;
@@ -555,10 +561,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C332B8C92348D56C00870971 /* SBTUITestTunnelErrorEums.swift in Sources */,
 				C332B8BF23463DAE00870971 /* XCTestCase+AppExtension.swift in Sources */,
 				C332B8C12346412400870971 /* XCTestCase+Swizzles.swift in Sources */,
 				C332B8752346066C00870971 /* SBTUITunneledApplication.swift in Sources */,
 				C30D56CB23438CF60096B006 /* SBTUITestTunnelClient.m in Sources */,
+				C332B8C72347A66F00870971 /* SBTUITestTunnelClient+Extensions.swift in Sources */,
 				C30D56D423439A470096B006 /* SBTUITestTunnelClientProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
