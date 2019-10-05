@@ -16,8 +16,7 @@ FOUNDATION_EXPORT const unsigned char SBTUITestTunnelClientVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <SBTUITestTunnelClient/PublicHeader.h>
 
-#import <UITestKitClient/SBTUITestTunnelClient.h>
-#import <UITestKitClient/SBTUITestTunnelClientProtocol.h>
+//#import <UITestKitClient/SBTUITestTunnelClient.h>
 //#import <UITestKitClient/SBTUITunneledApplication.h>
 
 #import <UITestKitCommon/NSURLRequest+SBTUITestTunnelMatch.h>

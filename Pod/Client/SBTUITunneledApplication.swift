@@ -2,7 +2,9 @@
 //  Copyright © 2019 Qonto. All rights reserved.
 //
 
+import CoreLocation
 import Foundation
+import UserNotifications
 import XCTest
 
 @objc public class SBTUITunneledApplication: XCUIApplication, SBTUITestTunnelClientDelegate, SBTUITestTunnelClientProtocol {
@@ -45,18 +47,16 @@ import XCTest
 
         self.launchArguments = launchArguments
 
-        launchTunnel(startupBlock: startupBlock)
+        launchTunnel(withStartupBlock: startupBlock)
     }
-}
 
-// MARK: - SBTUITestTunnelClientDelegate
+    // MARK: - SBTUITestTunnelClientDelegate
 
-extension SBTUITunneledApplication {
-    public func testTunnelClientIsReady(toLaunch _: SBTUITestTunnelClient) {
+    @objc public func testTunnelClientIsReady(toLaunch sender: SBTUITestTunnelClient) {
         launch()
     }
 
-    public func testTunnelClient(_: SBTUITestTunnelClient, didShutdownWithError error: Error?) {
+    @objc public func testTunnelClient(_: SBTUITestTunnelClient, didShutdownWithError error: Error?) {
         if error != nil {
             assert(false, error!.localizedDescription)
         }
@@ -68,11 +68,11 @@ extension SBTUITunneledApplication {
 
 extension SBTUITunneledApplication {
     public func launchTunnel() {
-        launchTunnel(startupBlock: nil)
+        launchTunnel(withStartupBlock: nil)
     }
 
-    @objc public func launchTunnel(startupBlock: (() -> Void)? = nil) {
-        client.launchTunnel(startupBlock: startupBlock)
+    @objc public func launchTunnel(withStartupBlock: (() -> Void)?) {
+        client.launchTunnel(withStartupBlock: withStartupBlock)
     }
 
     public func launchConnectionless(_ command: @escaping (String, [String: String]) -> String) {
@@ -83,8 +83,8 @@ extension SBTUITunneledApplication {
         client.terminate()
     }
 
-    public static func setConnectionTimeout(_ timeout: TimeInterval) {
-        SBTUITestTunnelClient.setConnectionTimeout(timeout)
+    public func setConnectionTimeout(_ timeout: TimeInterval) {
+        client.setConnectionTimeout(timeout)
     }
 
     public func quit() {
@@ -239,8 +239,8 @@ extension SBTUITunneledApplication {
     // MARK: - NSUserDefaults Commands
 
     @discardableResult
-    public func userDefaultsSetObject(_ object: NSCoding, forKey key: String) -> Bool {
-        return client.userDefaultsSetObject(object, forKey: key)
+    public func userDefaultsSet(object: NSCoding, forKey key: String) -> Bool {
+        return client.userDefaultsSet(object: object, forKey: key)
     }
 
     @discardableResult
@@ -259,8 +259,8 @@ extension SBTUITunneledApplication {
     }
 
     @discardableResult
-    public func userDefaultsSetObject(_ object: NSCoding, forKey key: String, suiteName: String) -> Bool {
-        return client.userDefaultsSetObject(object, forKey: key, suiteName: suiteName)
+    public func userDefaultsSet(object: NSCoding, forKey key: String, suiteName: String) -> Bool {
+        return client.userDefaultsSet(object: object, forKey: key, suiteName: suiteName)
     }
 
     @discardableResult
@@ -293,7 +293,7 @@ extension SBTUITunneledApplication {
     // MARK: - Copy Commands
 
     @discardableResult
-    public func uploadItem(atPath srcPath: String, toPath destPath: String?, relativeTo baseFolder: FileManager.SearchPathDirectory) -> Bool {
+    @objc public func uploadItem(atPath srcPath: String?, toPath destPath: String?, relativeTo baseFolder: FileManager.SearchPathDirectory) -> Bool {
         return client.uploadItem(atPath: srcPath, toPath: destPath, relativeTo: baseFolder)
     }
 
@@ -305,30 +305,30 @@ extension SBTUITunneledApplication {
     // MARK: - Custom Commands
 
     @discardableResult
-    public func performCustomCommandNamed(_ commandName: String, object: Any?) -> Any? {
-        return client.performCustomCommandNamed(commandName, object: object)
+    public func performCustom(commandName: String, object: Any?) -> Any? {
+        return client.performCustom(commandName: commandName, object: object)
     }
 
     // MARK: - Other Commands
 
     @discardableResult
-    public func setUserInterfaceAnimationsEnabled(_ enabled: Bool) -> Bool {
-        return client.setUserInterfaceAnimationsEnabled(enabled)
+    public func setUserInterfaceAnimations(enabled: Bool) -> Bool {
+        return client.setUserInterfaceAnimations(enabled: enabled)
     }
 
     @discardableResult
     public func userInterfaceAnimationsEnabled() -> Bool {
-        return client.userInterfaceAnimationsEnabled()
+        return client.animationsEnabled()
     }
 
     @discardableResult
-    public func setUserInterfaceAnimationSpeed(_ speed: Int) -> Bool {
-        return client.setUserInterfaceAnimationSpeed(speed)
+    public func setUserInterfaceAnimation(speed: Int) -> Bool {
+        return client.setUserInterfaceAnimation(speed: speed)
     }
 
     @discardableResult
     public func userInterfaceAnimationSpeed() -> Int {
-        return client.userInterfaceAnimationSpeed()
+        return client.animationSpeed()
     }
 
     // MARK: - XCUITest scroll extensions
@@ -358,39 +358,39 @@ extension SBTUITunneledApplication {
     // MARK: - XCUITest CLLocation extensions
 
     @discardableResult
-    public func coreLocationStubEnabled(_ flag: Bool) -> Bool {
-        return client.coreLocationStubEnabled(flag)
+    public func coreLocationStub(enabled flag: Bool) -> Bool {
+        return client.coreLocationStub(enabled: flag)
     }
 
     @discardableResult
-    public func coreLocationStubAuthorizationStatus(_ status: CLAuthorizationStatus) -> Bool {
-        return client.coreLocationStubAuthorizationStatus(status)
+    public func coreLocationStubAuthorization(status: CLAuthorizationStatus) -> Bool {
+        return client.coreLocationStubAuthorization(status: status)
     }
 
     @discardableResult
-    public func coreLocationStubLocationServicesEnabled(_ flag: Bool) -> Bool {
-        return client.coreLocationStubLocationServicesEnabled(flag)
+    public func coreLocationStubLocationServices(enabled flag: Bool) -> Bool {
+        return client.coreLocationStubLocationServices(enabled: flag)
     }
 
     // MARK: - XCUITest UNUserNotificationCenter extensions
 
     @discardableResult
-    public func coreLocationNotifyLocationUpdate(_ locations: [CLLocation]) -> Bool {
-        return client.coreLocationNotifyLocationUpdate(locations)
+    public func coreLocationNotifyLocationUpdate(locations: [CLLocation]) -> Bool {
+        return client.coreLocationNotifyLocationUpdate(locations: locations)
     }
 
     @discardableResult
-    public func coreLocationNotifyLocationError(_ error: Error) -> Bool {
-        return client.coreLocationNotifyLocationError(error)
+    public func coreLocationNotifyLocation(error: Error) -> Bool {
+        return client.coreLocationNotifyLocation(error: error)
     }
 
     @discardableResult
-    public func notificationCenterStubEnabled(_ flag: Bool) -> Bool {
-        return client.notificationCenterStubEnabled(flag)
+    public func notificationCenterStub(enabled flag: Bool) -> Bool {
+        return client.notificationCenterStub(enabled: flag)
     }
 
     @discardableResult
-    public func notificationCenterStubAuthorizationStatus(_ status: UNAuthorizationStatus) -> Bool {
-        return client.notificationCenterStubAuthorizationStatus(status)
+    public func notificationCenterStubAuthorization(status: UNAuthorizationStatus) -> Bool {
+        return client.notificationCenterStubAuthorization(status: status)
     }
 }

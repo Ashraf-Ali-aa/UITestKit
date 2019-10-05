@@ -25,7 +25,7 @@ class UserDefaultsTest: XCTestCase {
 
         let userDefaultKey = "test_key"
         // add and retrieve random string
-        XCTAssertTrue(app.userDefaultsSetObject(randomString as NSCoding & NSObjectProtocol, forKey: userDefaultKey))
+        XCTAssertTrue(app.userDefaultsSet(object: randomString as NSCoding & NSObjectProtocol, forKey: userDefaultKey))
         XCTAssertEqual(randomString, app.userDefaultsObject(forKey: userDefaultKey) as! String)
 
         // remove and check for nil
@@ -33,7 +33,7 @@ class UserDefaultsTest: XCTestCase {
         XCTAssertNil(app.userDefaultsObject(forKey: userDefaultKey))
 
         // add again, remove all keys and check for nil item
-        XCTAssertTrue(app.userDefaultsSetObject(randomString as NSCoding & NSObjectProtocol, forKey: userDefaultKey))
+        XCTAssertTrue(app.userDefaultsSet(object: randomString as NSCoding & NSObjectProtocol, forKey: userDefaultKey))
         app.userDefaultsReset()
         XCTAssertNil(app.userDefaultsObject(forKey: userDefaultKey))
     }

@@ -4,8 +4,12 @@
 
 import Foundation
 
-@objc public enum SBTUITestTunnelError: Int {
-    case launchFailed                  = 101
+enum SBTUITestTunnelError: UInt {
+    case launchFailed = 101
     case connectionToApplicationFailed = 201
-    case otherFailure                  = 301
+    case otherFailure = 301
+
+    func value() -> UInt {
+        return rawValue
+    }
 }

@@ -9,10 +9,6 @@ import XCTest
 private var kAppAssociatedKey = 0
 
 public extension XCTestCase {
-    @objc func setApp(_ app: SBTUITunneledApplication?) {
-        return objc_setAssociatedObject(self, &kAppAssociatedKey, app, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-    }
-
     @objc var app: SBTUITunneledApplication {
         var ret = objc_getAssociatedObject(self, &kAppAssociatedKey)
 

@@ -24,8 +24,8 @@ class MiscellaneousTests: XCTestCase {
         let randomString = ProcessInfo.processInfo.globallyUniqueString
 
         app.launchTunnel {
-            self.app.userDefaultsSetObject(randomString as NSCoding & NSObjectProtocol, forKey: userDefaultsKey)
-            self.app.setUserInterfaceAnimationsEnabled(false)
+            self.app.userDefaultsSet(object: randomString as NSCoding & NSObjectProtocol, forKey: userDefaultsKey)
+            self.app.setUserInterfaceAnimations(enabled: false)
         }
 
         XCTAssertEqual(randomString, app.userDefaultsObject(forKey: userDefaultsKey) as! String)
@@ -38,8 +38,8 @@ class MiscellaneousTests: XCTestCase {
         var startupBlockProcessed = false
 
         app.launchTunnel {
-            self.app.userDefaultsSetObject(randomString as NSCoding & NSObjectProtocol, forKey: userDefaultsKey)
-            self.app.setUserInterfaceAnimationsEnabled(false)
+            self.app.userDefaultsSet(object: randomString as NSCoding & NSObjectProtocol, forKey: userDefaultsKey)
+            self.app.setUserInterfaceAnimations(enabled: false)
             Thread.sleep(forTimeInterval: 8.0)
             startupBlockProcessed = true
         }
@@ -51,13 +51,13 @@ class MiscellaneousTests: XCTestCase {
         app.launchTunnel(withOptions: [SBTUITunneledApplicationLaunchOptionResetFilesystem])
 
         let randomString = ProcessInfo.processInfo.globallyUniqueString
-        let retObj = app.performCustomCommandNamed("myCustomCommandReturnNil", object: NSString(string: randomString))
+        let retObj = app.performCustom(commandName: "myCustomCommandReturnNil", object: NSString(string: randomString))
         let randomStringRemote = app.userDefaultsObject(forKey: "custom_command_test") as! String
         XCTAssertEqual(randomString, randomStringRemote)
         XCTAssertNil(retObj)
 
         let randomString2 = ProcessInfo.processInfo.globallyUniqueString
-        let retObj2 = app.performCustomCommandNamed("myCustomCommandReturn123", object: NSString(string: randomString2))
+        let retObj2 = app.performCustom(commandName: "myCustomCommandReturn123", object: NSString(string: randomString2))
         let randomStringRemote2 = app.userDefaultsObject(forKey: "custom_command_test") as! String
         XCTAssertEqual(randomString2, randomStringRemote2)
         XCTAssertEqual("123", retObj2 as! String)
@@ -66,7 +66,7 @@ class MiscellaneousTests: XCTestCase {
         sleep(5)
         app.activate()
 
-        let retObj3 = app.performCustomCommandNamed("myCustomCommandReturn123", object: nil)
+        let retObj3 = app.performCustom(commandName: "myCustomCommandReturn123", object: nil)
         XCTAssertNil(app.userDefaultsObject(forKey: "custom_command_test"))
         XCTAssertEqual("123", retObj3 as! String)
     }
@@ -130,7 +130,7 @@ class MiscellaneousTests: XCTestCase {
         XCTAssertNil(app.userDefaultsObject(forKey: userDefaultKey))
 
         let randomString = ProcessInfo.processInfo.globallyUniqueString
-        app.userDefaultsSetObject(randomString as NSCoding & NSObjectProtocol, forKey: userDefaultKey)
+        app.userDefaultsSet(object: randomString as NSCoding & NSObjectProtocol, forKey: userDefaultKey)
 
         app.terminate()
 

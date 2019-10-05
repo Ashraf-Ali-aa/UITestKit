@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C3013CA2235335070045ED73 /* SBTUITestTunnelClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3013CA1235335070045ED73 /* SBTUITestTunnelClient.swift */; };
+		C3013CA423535A270045ED73 /* SBTUITestTunnelClientDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3013CA323535A270045ED73 /* SBTUITestTunnelClientDelegate.swift */; };
 		C30D568023438C8A0096B006 /* UIViewController+SBTUITestTunnel.h in Headers */ = {isa = PBXBuildFile; fileRef = C30D566923438C890096B006 /* UIViewController+SBTUITestTunnel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C30D568123438C8A0096B006 /* SBTUITestTunnelServer.h in Headers */ = {isa = PBXBuildFile; fileRef = C30D566A23438C890096B006 /* SBTUITestTunnelServer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C30D568223438C8A0096B006 /* UIViewController+SBTUITestTunnel.m in Sources */ = {isa = PBXBuildFile; fileRef = C30D566B23438C890096B006 /* UIViewController+SBTUITestTunnel.m */; };
@@ -48,18 +50,26 @@
 		C30D56BA23438CB30096B006 /* SBTRequestMatch.h in Headers */ = {isa = PBXBuildFile; fileRef = C30D56A723438CB30096B006 /* SBTRequestMatch.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C30D56BB23438CB30096B006 /* SBTStubResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = C30D56A823438CB30096B006 /* SBTStubResponse.m */; };
 		C30D56BC23438CB30096B006 /* SBTRewrite.h in Headers */ = {isa = PBXBuildFile; fileRef = C30D56A923438CB30096B006 /* SBTRewrite.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C30D56CB23438CF60096B006 /* SBTUITestTunnelClient.m in Sources */ = {isa = PBXBuildFile; fileRef = C30D56C223438CF60096B006 /* SBTUITestTunnelClient.m */; };
-		C30D56CC23438CF60096B006 /* SBTUITestTunnelClient.h in Headers */ = {isa = PBXBuildFile; fileRef = C30D56C323438CF60096B006 /* SBTUITestTunnelClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C30D56CD23438CF60096B006 /* SBTUITestTunnelClientProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = C30D56C423438CF60096B006 /* SBTUITestTunnelClientProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C30D56D0234393150096B006 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE074EA4231D641F00A50F4E /* Foundation.framework */; };
-		C30D56D12343932D0096B006 /* UITestKitServer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE047570231E70D600108221 /* UITestKitServer.framework */; };
 		C30D56D22343935C0096B006 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE074EA4231D641F00A50F4E /* Foundation.framework */; };
 		C30D56D423439A470096B006 /* SBTUITestTunnelClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30D56D323439A470096B006 /* SBTUITestTunnelClientProtocol.swift */; };
 		C332B8752346066C00870971 /* SBTUITunneledApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = C332B8742346066C00870971 /* SBTUITunneledApplication.swift */; };
 		C332B8BF23463DAE00870971 /* XCTestCase+AppExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C332B8BE23463DAE00870971 /* XCTestCase+AppExtension.swift */; };
 		C332B8C12346412400870971 /* XCTestCase+Swizzles.swift in Sources */ = {isa = PBXBuildFile; fileRef = C332B8C02346412400870971 /* XCTestCase+Swizzles.swift */; };
-		C332B8C72347A66F00870971 /* SBTUITestTunnelClient+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C332B8C62347A66F00870971 /* SBTUITestTunnelClient+Extensions.swift */; };
 		C332B8C92348D56C00870971 /* SBTUITestTunnelErrorEums.swift in Sources */ = {isa = PBXBuildFile; fileRef = C332B8C82348D56C00870971 /* SBTUITestTunnelErrorEums.swift */; };
+		C332B8CD2349051800870971 /* Stubs.swift in Sources */ = {isa = PBXBuildFile; fileRef = C332B8CC2349051800870971 /* Stubs.swift */; };
+		C332B8CF2349058D00870971 /* RewriteRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C332B8CE2349058D00870971 /* RewriteRequests.swift */; };
+		C332B8D1234905D500870971 /* MonitoredRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C332B8D0234905D500870971 /* MonitoredRequests.swift */; };
+		C332B8D32349064900870971 /* ThrottleRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C332B8D22349064900870971 /* ThrottleRequests.swift */; };
+		C332B8D52349069200870971 /* Cookies.swift in Sources */ = {isa = PBXBuildFile; fileRef = C332B8D42349069200870971 /* Cookies.swift */; };
+		C332B8D7234906DB00870971 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = C332B8D6234906DB00870971 /* UserDefaults.swift */; };
+		C332B8D92349074300870971 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C332B8D82349074300870971 /* Helpers.swift */; };
+		C332B8DB2349079400870971 /* FileTransfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C332B8DA2349079400870971 /* FileTransfer.swift */; };
+		C332B8DD234907EA00870971 /* Scroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = C332B8DC234907EA00870971 /* Scroll.swift */; };
+		C332B8DF2349083B00870971 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = C332B8DE2349083B00870971 /* Location.swift */; };
+		C332B8E12349088000870971 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = C332B8E02349088000870971 /* Notifications.swift */; };
+		C332B8E3234908B300870971 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C332B8E2234908B300870971 /* Animation.swift */; };
+		C332B8E52349090400870971 /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C332B8E42349090400870971 /* Connection.swift */; };
 		C3C4895C23424DF500F288C7 /* UITestKitCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = C3C4894E23424DF500F288C7 /* UITestKitCommon.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C3C4897623424EAA00F288C7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE074EA4231D641F00A50F4E /* Foundation.framework */; };
 		C3C4897723433D7A00F288C7 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE074E70231D57CE00A50F4E /* XCTest.framework */; };
@@ -81,6 +91,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C3013CA1235335070045ED73 /* SBTUITestTunnelClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBTUITestTunnelClient.swift; sourceTree = "<group>"; };
+		C3013CA323535A270045ED73 /* SBTUITestTunnelClientDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBTUITestTunnelClientDelegate.swift; sourceTree = "<group>"; };
 		C30D566923438C890096B006 /* UIViewController+SBTUITestTunnel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+SBTUITestTunnel.h"; sourceTree = "<group>"; };
 		C30D566A23438C890096B006 /* SBTUITestTunnelServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBTUITestTunnelServer.h; sourceTree = "<group>"; };
 		C30D566B23438C890096B006 /* UIViewController+SBTUITestTunnel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+SBTUITestTunnel.m"; sourceTree = "<group>"; };
@@ -122,15 +134,24 @@
 		C30D56A723438CB30096B006 /* SBTRequestMatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBTRequestMatch.h; sourceTree = "<group>"; };
 		C30D56A823438CB30096B006 /* SBTStubResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBTStubResponse.m; sourceTree = "<group>"; };
 		C30D56A923438CB30096B006 /* SBTRewrite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBTRewrite.h; sourceTree = "<group>"; };
-		C30D56C223438CF60096B006 /* SBTUITestTunnelClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBTUITestTunnelClient.m; sourceTree = "<group>"; };
-		C30D56C323438CF60096B006 /* SBTUITestTunnelClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBTUITestTunnelClient.h; sourceTree = "<group>"; };
-		C30D56C423438CF60096B006 /* SBTUITestTunnelClientProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBTUITestTunnelClientProtocol.h; sourceTree = "<group>"; };
 		C30D56D323439A470096B006 /* SBTUITestTunnelClientProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBTUITestTunnelClientProtocol.swift; sourceTree = "<group>"; };
 		C332B8742346066C00870971 /* SBTUITunneledApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBTUITunneledApplication.swift; sourceTree = "<group>"; };
 		C332B8BE23463DAE00870971 /* XCTestCase+AppExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+AppExtension.swift"; sourceTree = "<group>"; };
 		C332B8C02346412400870971 /* XCTestCase+Swizzles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Swizzles.swift"; sourceTree = "<group>"; };
-		C332B8C62347A66F00870971 /* SBTUITestTunnelClient+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SBTUITestTunnelClient+Extensions.swift"; sourceTree = "<group>"; };
 		C332B8C82348D56C00870971 /* SBTUITestTunnelErrorEums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBTUITestTunnelErrorEums.swift; sourceTree = "<group>"; };
+		C332B8CC2349051800870971 /* Stubs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stubs.swift; sourceTree = "<group>"; };
+		C332B8CE2349058D00870971 /* RewriteRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewriteRequests.swift; sourceTree = "<group>"; };
+		C332B8D0234905D500870971 /* MonitoredRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonitoredRequests.swift; sourceTree = "<group>"; };
+		C332B8D22349064900870971 /* ThrottleRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThrottleRequests.swift; sourceTree = "<group>"; };
+		C332B8D42349069200870971 /* Cookies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cookies.swift; sourceTree = "<group>"; };
+		C332B8D6234906DB00870971 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		C332B8D82349074300870971 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		C332B8DA2349079400870971 /* FileTransfer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileTransfer.swift; sourceTree = "<group>"; };
+		C332B8DC234907EA00870971 /* Scroll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scroll.swift; sourceTree = "<group>"; };
+		C332B8DE2349083B00870971 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		C332B8E02349088000870971 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		C332B8E2234908B300870971 /* Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
+		C332B8E42349090400870971 /* Connection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connection.swift; sourceTree = "<group>"; };
 		C3C4894C23424DF500F288C7 /* UITestKitCommon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UITestKitCommon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3C4894E23424DF500F288C7 /* UITestKitCommon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UITestKitCommon.h; sourceTree = "<group>"; };
 		C3C4894F23424DF500F288C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -171,7 +192,6 @@
 			files = (
 				C30D56D0234393150096B006 /* Foundation.framework in Frameworks */,
 				C3C489C22343544500F288C7 /* UITestKitCommon.framework in Frameworks */,
-				C30D56D12343932D0096B006 /* UITestKitServer.framework in Frameworks */,
 				C3C4897723433D7A00F288C7 /* XCTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -215,12 +235,24 @@
 			path = Private;
 			sourceTree = "<group>";
 		};
-		C30D56BF23438CF60096B006 /* Private */ = {
+		C332B8CA234904A800870971 /* Commands */ = {
 			isa = PBXGroup;
 			children = (
-				C332B8C02346412400870971 /* XCTestCase+Swizzles.swift */,
+				C332B8E2234908B300870971 /* Animation.swift */,
+				C332B8E42349090400870971 /* Connection.swift */,
+				C332B8D42349069200870971 /* Cookies.swift */,
+				C332B8DA2349079400870971 /* FileTransfer.swift */,
+				C332B8D82349074300870971 /* Helpers.swift */,
+				C332B8DE2349083B00870971 /* Location.swift */,
+				C332B8D0234905D500870971 /* MonitoredRequests.swift */,
+				C332B8E02349088000870971 /* Notifications.swift */,
+				C332B8CE2349058D00870971 /* RewriteRequests.swift */,
+				C332B8DC234907EA00870971 /* Scroll.swift */,
+				C332B8CC2349051800870971 /* Stubs.swift */,
+				C332B8D22349064900870971 /* ThrottleRequests.swift */,
+				C332B8D6234906DB00870971 /* UserDefaults.swift */,
 			);
-			path = Private;
+			path = Commands;
 			sourceTree = "<group>";
 		};
 		C3C4894D23424DF500F288C7 /* UITestKitCommon */ = {
@@ -277,11 +309,10 @@
 		CE074E10231D577A00A50F4E /* Client */ = {
 			isa = PBXGroup;
 			children = (
-				C30D56BF23438CF60096B006 /* Private */,
-				C30D56C323438CF60096B006 /* SBTUITestTunnelClient.h */,
-				C30D56C223438CF60096B006 /* SBTUITestTunnelClient.m */,
-				C332B8C62347A66F00870971 /* SBTUITestTunnelClient+Extensions.swift */,
-				C30D56C423438CF60096B006 /* SBTUITestTunnelClientProtocol.h */,
+				C332B8CA234904A800870971 /* Commands */,
+				C3013CA323535A270045ED73 /* SBTUITestTunnelClientDelegate.swift */,
+				C332B8C02346412400870971 /* XCTestCase+Swizzles.swift */,
+				C3013CA1235335070045ED73 /* SBTUITestTunnelClient.swift */,
 				C30D56D323439A470096B006 /* SBTUITestTunnelClientProtocol.swift */,
 				C332B8742346066C00870971 /* SBTUITunneledApplication.swift */,
 				C332B8BE23463DAE00870971 /* XCTestCase+AppExtension.swift */,
@@ -393,8 +424,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE074ED8231D698200A50F4E /* UITestKitClient.h in Headers */,
-				C30D56CC23438CF60096B006 /* SBTUITestTunnelClient.h in Headers */,
-				C30D56CD23438CF60096B006 /* SBTUITestTunnelClientProtocol.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -561,13 +590,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C332B8D32349064900870971 /* ThrottleRequests.swift in Sources */,
+				C332B8D92349074300870971 /* Helpers.swift in Sources */,
+				C332B8D52349069200870971 /* Cookies.swift in Sources */,
 				C332B8C92348D56C00870971 /* SBTUITestTunnelErrorEums.swift in Sources */,
 				C332B8BF23463DAE00870971 /* XCTestCase+AppExtension.swift in Sources */,
-				C332B8C12346412400870971 /* XCTestCase+Swizzles.swift in Sources */,
+				C332B8DF2349083B00870971 /* Location.swift in Sources */,
+				C332B8D7234906DB00870971 /* UserDefaults.swift in Sources */,
+				C332B8E52349090400870971 /* Connection.swift in Sources */,
+				C332B8DD234907EA00870971 /* Scroll.swift in Sources */,
+				C3013CA2235335070045ED73 /* SBTUITestTunnelClient.swift in Sources */,
 				C332B8752346066C00870971 /* SBTUITunneledApplication.swift in Sources */,
-				C30D56CB23438CF60096B006 /* SBTUITestTunnelClient.m in Sources */,
-				C332B8C72347A66F00870971 /* SBTUITestTunnelClient+Extensions.swift in Sources */,
+				C332B8CF2349058D00870971 /* RewriteRequests.swift in Sources */,
+				C332B8E12349088000870971 /* Notifications.swift in Sources */,
+				C332B8E3234908B300870971 /* Animation.swift in Sources */,
+				C332B8D1234905D500870971 /* MonitoredRequests.swift in Sources */,
+				C3013CA423535A270045ED73 /* SBTUITestTunnelClientDelegate.swift in Sources */,
+				C332B8C12346412400870971 /* XCTestCase+Swizzles.swift in Sources */,
 				C30D56D423439A470096B006 /* SBTUITestTunnelClientProtocol.swift in Sources */,
+				C332B8CD2349051800870971 /* Stubs.swift in Sources */,
+				C332B8DB2349079400870971 /* FileTransfer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
